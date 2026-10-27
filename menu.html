@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#f6ecd9">
+  <title>Menu · Ola Latina</title>
+  <meta name="description" content="Menu complet d'Ola Latina, restaurant latino-américain à Montréal-Nord.">
+  <link rel="preload" href="Assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="Assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <main class="page">
+    <a href="index.html#carte" class="retour">← Retour au site</a>
+    <header>
+      <h1 id="nom"></h1>
+      <p class="sous-titre" id="sous-titre"></p>
+    </header>
+    <button type="button" class="imprimer">Imprimer le menu</button>
+    <div class="colonnes" id="sections"></div>
+    <footer>
+      <div id="contact"></div>
+      <div class="legende" id="legende"></div>
+      <div class="legende" id="note"></div>
+    </footer>
+  </main>
+
+  <!-- Les plats sont dans menu-data.js -->
+  <script src="menu-data.js" charset="utf-8"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* Ola Latina — menu complet (menu.html) */
+/* Couleurs et polices alignées sur le site (styles.css) */
+:root {
+  --cream: #f6ecd9; --ink: #2a1a12; --muted: #6b5a50;
+  --terracotta: #e2581f; --terracotta-dark: #9e3c1d;
+  --gold: #f2b705; --green: #1f7a6d; --line: #e3d1b8;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; font-family: "DM Sans", system-ui, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.5; }
+h1, h2 { font-family: "Fraunces", Georgia, serif; line-height: 1.15; }
+.page {
+  max-width: 880px; margin: 0 auto;
+  padding: 48px max(20px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+}
+@media (max-width: 600px) { .page { padding-top: 24px; } }
+header { text-align: center; border-bottom: 4px solid var(--gold); padding-bottom: 20px; margin-bottom: 32px; }
+header h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); margin: 0; }
+header h1 span { color: var(--terracotta); }
+.sous-titre { margin: 6px 0 0; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; color: var(--green); font-size: .9rem; }
+.colonnes { columns: 2 340px; column-gap: 48px; }
+section { break-inside: avoid; margin-bottom: 32px; }
+section h2 { font-size: 1.6rem; color: var(--terracotta-dark); margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.plat { break-inside: avoid; margin-bottom: 14px; }
+.ligne { display: flex; align-items: baseline; gap: 8px; font-weight: 600; }
+.ligne > span:first-child { min-width: 0; overflow-wrap: break-word; }
+.ligne .points { flex: 1; border-bottom: 2px dotted var(--line); transform: translateY(-4px); }
+.prix { white-space: nowrap; color: var(--terracotta-dark); }
+.desc { margin: 2px 0 0; color: var(--muted); font-size: .95rem; }
+.intro { margin: -4px 0 12px; color: var(--muted); font-style: italic; font-size: .95rem; }
+.note-section { margin: 4px 0 0; font-weight: 600; color: var(--terracotta-dark); }
+.tag { font-size: .7rem; font-weight: 600; padding: 1px 7px; border-radius: 999px; margin-left: 4px; vertical-align: 2px; }
+.tag.vege { background: #e3efe7; color: var(--green); }
+.tag.epice { background: #f8e0d6; color: var(--terracotta-dark); }
+.tag.vedette { background: #fbeccf; color: #8a5a10; }
+footer { text-align: center; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 8px; }
+footer .legende { margin-top: 6px; }
+.imprimer { display: block; margin: 0 auto 32px; padding: 10px 20px; border-radius: 999px; border: 2px solid var(--terracotta); background: transparent; color: var(--terracotta-dark); font: 600 .95rem "DM Sans", sans-serif; cursor: pointer; min-height: 44px; }
+@media (hover: hover) { .imprimer:hover { background: var(--terracotta); color: #fff; } }
+.imprimer:active { background: var(--terracotta); color: #fff; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--terracotta-dark); outline-offset: 3px; }
+.retour { display: inline-block; padding: 10px 0; margin-bottom: 14px; color: var(--terracotta-dark); font-weight: 600; text-decoration: none; }
+.retour:hover { text-decoration: underline; }
+
+/* Version imprimée : format lettre (plusieurs pages), fond blanc, sans bouton */
+@page { size: letter; margin: 14mm; }
+@media print {
+  body { background: #fff; font-size: 10.5pt; }
+  .page { max-width: none; padding: 0; }
+  .imprimer, .retour { display: none; }
+  header { margin-bottom: 20px; padding-bottom: 12px; }
+  header h1 { font-size: 34pt; }
+  .colonnes { columns: 2; column-gap: 32px; }
+  section { margin-bottom: 18px; }
+  section h2 { font-size: 15pt; }
+  .plat { margin-bottom: 8px; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

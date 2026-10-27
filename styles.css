@@ -1,0 +1,551 @@
+/* ==========================================================
+   Ola Latina — feuille de style principale
+   Esthétique : rétro chaleureux, gros titres, aplats de couleur,
+   frises à motifs. Aucun dégradé.
+   Couleurs et polices à ajuster dans :root
+   ========================================================== */
+
+:root {
+  --cream: #f6ecd9;
+  --ink: #2a1a12;
+  --orange: #e2581f;
+  --fuchsia: #d6336c;
+  --violet: #4f2463;
+  --mustard: #f2b705;
+  --teal: #1f7a6d;
+  --white: #fffaf0;
+
+  --font-title: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius: 6px;
+  --max-width: 1150px;
+  --header-h: 4.25rem;
+  /* Marges latérales : 16px, ou plus si l'encoche de l'iPhone l'exige (paysage) */
+  --gutter-l: max(16px, env(safe-area-inset-left));
+  --gutter-r: max(16px, env(safe-area-inset-right));
+
+  /* Frise : triangles et losanges (inspiration textile latino) */
+  --frieze: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Crect width='48' height='24' fill='%234f2463'/%3E%3Cpath d='M0 24L12 12L24 24Z' fill='%23f2b705'/%3E%3Cpath d='M24 24L36 12L48 24Z' fill='%23e2581f'/%3E%3Cpath d='M12 0L24 12L36 0Z' fill='%23d6336c'/%3E%3Cpath d='M0 0L0 12L12 0Z M36 0L48 12L48 0Z' fill='%231f7a6d'/%3E%3Crect x='22' y='10' width='4' height='4' transform='rotate(45 24 12)' fill='%23fffaf0'/%3E%3C/svg%3E");
+
+  /* Carreaux fleuris (inspiration carreaux de ciment) */
+  --tiles: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23f6ecd9'/%3E%3Cpath d='M30 6Q40 20 30 30Q20 20 30 6Z M30 54Q40 40 30 30Q20 40 30 54Z M6 30Q20 20 30 30Q20 40 6 30Z M54 30Q40 20 30 30Q40 40 54 30Z' fill='%23d6336c'/%3E%3Ccircle cx='30' cy='30' r='5' fill='%23f2b705'/%3E%3Cpath d='M0 0L10 0L0 10Z M60 0L50 0L60 10Z M0 60L10 60L0 50Z M60 60L50 60L60 50Z' fill='%231f7a6d'/%3E%3C/svg%3E");
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h); /* les ancres ne passent pas sous l'en-tête collant */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: clip; /* les cadres inclinés ne créent pas de défilement horizontal */
+  overflow-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* Focus visible au clavier */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--fuchsia);
+  outline-offset: 3px;
+}
+.menu a:focus-visible, .contact-hours a:focus-visible, .site-footer a:focus-visible { outline-color: var(--mustard); }
+
+/* Lien d'évitement (visible seulement au clavier) */
+.skip-link {
+  position: absolute;
+  left: var(--gutter-l);
+  top: -100px;
+  z-index: 20;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0.5rem; }
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  font-weight: 900;
+  line-height: 0.95;
+  margin: 0 0 0.4em;
+  font-variant-numeric: lining-nums;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+/* Mots en italique dans les titres : « Les saveurs de chez nous » */
+h1 em, h2 em, .logo em {
+  font-style: italic;
+  font-weight: 600;
+  text-transform: none;
+  font-size: 0.75em;
+}
+
+h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-r) 0 var(--gutter-l);
+}
+
+.kicker {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  margin: 0 0 0.8rem;
+  color: var(--fuchsia);
+}
+.kicker-light { color: var(--mustard); }
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px; /* cible tactile recommandée */
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--fuchsia);
+  border-radius: var(--radius);
+  background: var(--fuchsia);
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+@media (hover: hover) {
+  .btn:hover { transform: translateY(-2px); }
+}
+.btn:active { transform: translateY(1px); }
+.btn-small { padding: 0.45rem 1rem; min-height: 40px; }
+.btn-outline { background: transparent; color: var(--fuchsia); }
+.btn-dark { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.btn-outline-dark { background: transparent; border-color: var(--ink); color: var(--ink); }
+
+/* ---------- En-tête & navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-h);
+  padding: 0.6rem var(--gutter-r) 0.6rem var(--gutter-l);
+  padding-top: max(0.6rem, env(safe-area-inset-top));
+  background: var(--cream);
+  border-bottom: 2px solid var(--ink);
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--orange);
+}
+.logo em { color: var(--fuchsia); font-size: 0.85em; }
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-right: -8px;
+  background: none;
+  border: 0;
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.site-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: var(--cream);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.25rem var(--gutter-r) 1rem var(--gutter-l);
+  max-height: calc(100dvh - var(--header-h));
+  overflow-y: auto; /* téléphone à l'horizontale */
+  overscroll-behavior: contain;
+}
+.site-nav.open { display: flex; }
+.site-nav a {
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+  padding: 0.8rem 0;
+}
+.site-nav .btn { align-self: flex-start; padding: 0.45rem 1.2rem; margin-top: 0.4rem; }
+
+@media (min-width: 860px) {
+  .nav-toggle { display: none; }
+  .site-nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.6rem;
+    background: none;
+    border: 0;
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+  }
+  .site-nav a { padding: 0.5rem 0; font-size: 0.85rem; }
+  .site-nav .btn { margin-top: 0; }
+  .site-nav a:not(.btn):hover { color: var(--fuchsia); }
+}
+
+/* ---------- Frise ---------- */
+.frieze {
+  height: 24px;
+  background: var(--frieze) repeat-x;
+}
+
+/* ---------- Accueil ---------- */
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter-r) 4rem var(--gutter-l);
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .hero { grid-template-columns: 1.1fr 0.9fr; padding-top: 4.5rem; padding-bottom: 5rem; }
+}
+
+.hero h1 {
+  font-size: clamp(3.6rem, 17vw, 9rem);
+  color: var(--orange);
+  margin-bottom: 1.2rem;
+}
+
+/* Bandeau surligné (inspiration Heyday) */
+.highlight {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.2rem 0.7rem;
+  background: var(--mustard);
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  text-transform: uppercase;
+  line-height: 1.1;
+  transform: rotate(-1.5deg);
+}
+
+.hero-sub { font-size: 1.15rem; margin: 0 0 1.6rem; }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+.hero-visual { position: relative; padding: 1rem; }
+/* Une seule colonne (téléphone, iPad à la verticale) : photo de taille raisonnable */
+@media (max-width: 859px) {
+  .hero-visual { width: min(420px, 100%); margin: 0 auto; }
+}
+
+/* Pastille autocollante (inspiration tampon Comptoir) */
+.sticker {
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
+  width: clamp(92px, 26vw, 112px);
+  height: clamp(92px, 26vw, 112px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--fuchsia);
+  color: var(--white);
+  clip-path: polygon(50% 0%, 61% 11%, 75% 7%, 79% 21%, 93% 25%, 89% 39%, 100% 50%, 89% 61%, 93% 75%, 79% 79%, 75% 93%, 61% 89%, 50% 100%, 39% 89%, 25% 93%, 21% 79%, 7% 75%, 11% 61%, 0% 50%, 11% 39%, 7% 25%, 21% 21%, 25% 7%, 39% 11%);
+  transform: rotate(12deg);
+}
+.sticker strong { font-family: var(--font-title); font-size: 1.5rem; line-height: 1; font-variant-numeric: lining-nums; }
+.sticker span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ---------- Cadres photo inclinés ---------- */
+.photo-frame {
+  position: relative;
+  margin: 0;
+  padding: 10px 10px 40px;
+  background: var(--white);
+  box-shadow: 0 8px 20px rgba(42, 26, 18, 0.18);
+}
+.photo-frame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--orange);
+  color: transparent; /* masque le texte alt si l'image ne charge pas */
+}
+/* Image absente : bloc de couleur + légende « Photo à venir » */
+.photo-frame img.missing { visibility: hidden; }
+.photo-frame:has(img.missing) { background-color: var(--white); }
+.photo-frame:has(img.missing)::before {
+  content: "";
+  position: absolute;
+  inset: 10px 10px 40px;
+  background: var(--orange);
+}
+.photo-frame figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  text-align: center;
+  font-family: var(--font-title);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.photo-frame:not(:has(img.missing)) figcaption { visibility: hidden; }
+
+.tilt-right { transform: rotate(3deg); }
+.tilt-left { transform: rotate(-3deg); }
+.tilt-left-sm { transform: rotate(-1.5deg); }
+
+/* ---------- Carte (inspiration affiche menu) ---------- */
+.menu {
+  background: var(--violet);
+  color: var(--white);
+  padding: 4rem 0;
+}
+.menu h2 { color: var(--mustard); }
+.menu h2 em { color: var(--white); }
+
+/* Sections de la carte (générées depuis menu-data.js) */
+.menu-sections {
+  margin-top: 2rem;
+  columns: 2 380px;
+  column-gap: 3.5rem;
+}
+
+.menu-group {
+  break-inside: avoid;
+  margin-bottom: 2.5rem;
+}
+.menu-group h3 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--white);
+  margin: 0 0 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--mustard);
+}
+.menu-group ul { list-style: none; margin: 0; padding: 0; }
+.menu-intro { margin: -0.4rem 0 1.2rem; font-style: italic; opacity: 0.85; }
+.menu-group-note {
+  display: inline-block;
+  margin: 0.3rem 0 0;
+  padding: 0.2rem 0.6rem;
+  background: var(--mustard);
+  color: var(--ink);
+  font-weight: 700;
+  transform: rotate(-1deg);
+}
+
+.dish { break-inside: avoid; margin-bottom: 1.2rem; }
+
+.dish-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.dish-name {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+  text-transform: uppercase;
+  line-height: 1.15;
+  font-variant-numeric: lining-nums;
+  color: var(--mustard);
+}
+.dots {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 3px dotted var(--mustard);
+  transform: translateY(-0.3em);
+}
+.dish .price {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1.15rem;
+  font-variant-numeric: lining-nums;
+  white-space: nowrap;
+}
+.dish p { margin: 0.3rem 0 0; opacity: 0.85; }
+
+/* Étiquettes : vedette, végé, épicé */
+.tag {
+  flex: none;
+  align-self: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+}
+.tag.vedette { background: var(--mustard); color: var(--ink); }
+.tag.vege { background: var(--teal); color: var(--white); }
+.tag.epice { background: var(--fuchsia); color: var(--white); }
+
+.menu-note { margin: 0.5rem 0 1.5rem; opacity: 0.85; font-style: italic; }
+
+.menu-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.menu-legend { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.btn-mustard { background: var(--mustard); border-color: var(--mustard); color: var(--ink); }
+
+/* ---------- Histoire : aplat + carreaux (inspiration Comptoir) ---------- */
+.split { display: grid; }
+@media (min-width: 860px) {
+  .split { grid-template-columns: 1fr 1fr; }
+}
+
+.split-text {
+  background: var(--orange);
+  color: var(--ink);
+  padding: 4rem var(--gutter-r) 4rem var(--gutter-l);
+}
+@media (min-width: 860px) {
+  .split-text { padding: 5rem max(2rem, calc((100vw - var(--max-width)) / 2 + 16px)); padding-right: 3rem; }
+}
+.split-text .kicker { color: var(--white); }
+.split-text h2 { color: var(--mustard); }
+.split-text h2 em { color: var(--white); }
+.split-text p { max-width: 34rem; margin: 0 0 1.6rem; }
+
+.split-pattern {
+  background: var(--tiles) repeat;
+  background-size: 60px 60px;
+  padding: 3.5rem max(2rem, var(--gutter-r)) 3.5rem max(2rem, var(--gutter-l));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.split-pattern .photo-frame { width: min(340px, 100%); }
+
+/* ---------- Galerie ---------- */
+.gallery-section {
+  padding: 4.5rem 0 5rem;
+  text-align: center;
+}
+.gallery-section h2 { color: var(--fuchsia); }
+.gallery-section h2 em { color: var(--orange); }
+
+.gallery {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 760px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); max-width: none; gap: 2rem; }
+  .gallery .photo-frame:nth-child(2) { margin-top: 2rem; }
+}
+.gallery .photo-frame:nth-child(2) img { background: var(--teal); }
+.gallery .photo-frame:nth-child(2):has(img.missing)::before { background: var(--teal); }
+.gallery .photo-frame:nth-child(3):has(img.missing)::before { background: var(--fuchsia); }
+
+/* ---------- Contact ---------- */
+.contact { display: grid; }
+@media (min-width: 860px) {
+  .contact { grid-template-columns: 1.1fr 0.9fr; }
+}
+
+.contact-block { padding: 4rem var(--gutter-r) 4rem var(--gutter-l); }
+@media (min-width: 860px) {
+  .contact-block { padding: 5rem 3rem; }
+}
+
+.contact-where { background: var(--mustard); }
+.contact-where h2 { color: var(--ink); }
+.contact-where h2 em { color: var(--fuchsia); }
+.contact-where .kicker { color: var(--ink); }
+.address, .phone {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 0 0 1rem;
+}
+.address a, .phone a { text-decoration: none; }
+@media (hover: hover) {
+  .address a:hover, .phone a:hover { text-decoration: underline; }
+}
+.address a, .phone a { display: inline-block; padding: 0.15rem 0; }
+.contact-where .hero-actions { margin-top: 1.6rem; }
+
+.contact-hours { background: var(--fuchsia); color: var(--white); }
+.contact-hours h2 { color: var(--white); }
+
+.hours { list-style: none; padding: 0; margin: 1rem 0 0; }
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 2px dotted rgba(255, 250, 240, 0.6);
+  font-weight: 500;
+}
+.hours li span:first-child { font-weight: 700; }
+
+/* ---------- Pied de page ---------- */
+.site-footer {
+  background: var(--ink);
+  color: var(--cream);
+  text-align: center;
+  padding: 2.5rem var(--gutter-r) max(2.5rem, calc(1.5rem + env(safe-area-inset-bottom))) var(--gutter-l);
+}
+.site-footer .logo { font-size: 2rem; }
+.site-footer p { margin: 0.6rem 0 0; }
+.site-footer .small { font-size: 0.85rem; opacity: 0.7; }
+
+/* ---------- Accessibilité : mouvements réduits ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+  .btn:hover, .btn:active { transform: none; }
+}
