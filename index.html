@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#f6ecd9">
+  <title>Ola Latina — Restaurant</title>
+  <meta name="description" content="Ola Latina, restaurant latino-américain à Montréal-Nord. Découvrez notre carte, notre histoire et nos horaires.">
+  <link rel="preload" href="Assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="Assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#contenu" class="skip-link">Aller au contenu</a>
+
+  <header class="site-header">
+    <a href="#accueil" class="logo">Ola <em>Latina</em></a>
+    <button type="button" class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true">☰</span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="#carte">Carte</a>
+      <a href="#histoire">Notre histoire</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+15146565060" class="btn btn-small">Appeler</a>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <!-- Accueil -->
+    <section id="accueil" class="hero">
+      <div class="hero-text">
+        <p class="kicker">Bienvenue chez</p>
+        <h1>Ola<br>Latina</h1>
+        <p class="highlight">Cuisine latino-américaine</p>
+        <p class="hero-sub">Restaurant familial à Montréal-Nord.</p>
+        <div class="hero-actions">
+          <a href="#carte" class="btn">Voir la carte</a>
+          <a href="#contact" class="btn btn-outline">Nous trouver</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <figure class="photo-frame tilt-right">
+          <img src="Assets/hero.jpg" alt="Plat signature d'Ola Latina">
+          <figcaption>Photo à venir</figcaption>
+        </figure>
+        <div class="sticker" role="img" aria-label="Note de 4,7 sur 5 sur Google">
+          <strong aria-hidden="true">4,7 ★</strong>
+          <span aria-hidden="true">sur Google</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="frieze" aria-hidden="true"></div>
+
+    <!-- Carte -->
+    <section id="carte" class="menu">
+      <div class="container">
+        <p class="kicker kicker-light">Nos incontournables</p>
+        <h2>La <em>carte</em></h2>
+        <!-- Généré à partir de menu-data.js (le seul fichier à modifier pour la carte) -->
+        <div class="menu-sections" id="menu-sections"></div>
+        <p class="menu-note" id="menu-note"></p>
+        <div class="menu-actions">
+          <a href="menu.html" class="btn btn-mustard">Voir le menu complet</a>
+          <div class="menu-legend" id="menu-legend"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="frieze" aria-hidden="true"></div>
+
+    <!-- Histoire : bloc couleur + bloc motif -->
+    <section id="histoire" class="split">
+      <div class="split-text">
+        <p class="kicker">Notre histoire</p>
+        <h2>Les saveurs <em>de chez nous</em>, à Montréal-Nord</h2>
+        <p>Restaurant familial de cuisine latino-américaine à Montréal-Nord. Texte de présentation à compléter : origine, équipe et ce qui fait son identité.</p>
+        <a href="#galerie" class="btn btn-dark">Découvrir</a>
+      </div>
+      <div class="split-pattern">
+        <figure class="photo-frame tilt-left">
+          <img src="Assets/histoire.jpg" alt="L'équipe d'Ola Latina" loading="lazy">
+          <figcaption>Photo à venir</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section id="galerie" class="gallery-section">
+      <div class="container">
+        <h2>Tout frais <em>sorti de</em> la cuisine</h2>
+        <div class="gallery">
+          <!-- Remplacer par les photos placées dans Assets/ -->
+          <figure class="photo-frame tilt-left">
+            <img src="Assets/photo-1.jpg" alt="Plat signature" loading="lazy">
+            <figcaption>Photo à venir</figcaption>
+          </figure>
+          <figure class="photo-frame tilt-right">
+            <img src="Assets/photo-2.jpg" alt="Salle du restaurant" loading="lazy">
+            <figcaption>Photo à venir</figcaption>
+          </figure>
+          <figure class="photo-frame tilt-left-sm">
+            <img src="Assets/photo-3.jpg" alt="Dessert" loading="lazy">
+            <figcaption>Photo à venir</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & horaires -->
+    <section id="contact" class="contact">
+      <div class="contact-block contact-where">
+        <p class="kicker">Nous trouver</p>
+        <h2>Passez <em>nous voir</em></h2>
+        <p class="address">
+          <a href="https://maps.app.goo.gl/vnsDN5pDzAvPZucu6" target="_blank" rel="noopener noreferrer">10701 Av. Bellevois<br>Montréal-Nord, QC H1H 3C7</a>
+        </p>
+        <p class="phone"><a href="tel:+15146565060">514-656-5060</a></p>
+        <div class="hero-actions">
+          <a href="https://maps.app.goo.gl/vnsDN5pDzAvPZucu6" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Itinéraire</a>
+          <a href="tel:+15146565060" class="btn btn-outline-dark">Appeler</a>
+        </div>
+      </div>
+      <div class="contact-block contact-hours">
+        <h2>Horaires</h2>
+        <ul class="hours">
+          <li><span>Lundi</span><span>9h – 17h</span></li>
+          <li><span>Mardi</span><span>Fermé</span></li>
+          <li><span>Mercredi – Samedi</span><span>10h – 21h</span></li>
+          <li><span>Dimanche</span><span>10h – 18h</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div class="frieze" aria-hidden="true"></div>
+
+  <footer class="site-footer">
+    <a href="#accueil" class="logo">Ola <em>Latina</em></a>
+    <p>10701 Av. Bellevois, Montréal-Nord · 514-656-5060</p>
+    <p class="small">&copy; <span id="year"></span> Ola Latina. Tous droits réservés.</p>
+  </footer>
+
+  <script src="menu-data.js" charset="utf-8"></script>
+  <script src="script.js"></script>
+</body>
+</html>
