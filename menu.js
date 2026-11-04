@@ -26,7 +26,7 @@ const visuel = (img, alt, classe) => `
 // "Ola Latina" : le dernier mot en couleur, comme sur le site
 const mots = m.restaurant.split(" ");
 document.getElementById("nom").innerHTML = mots.length > 1
-  ? echap(mots.slice(0, -1).join(" ")) + " <span>" + echap(mots.at(-1)) + "</span>"
+  ? echap(mots.slice(0, -1).join(" ")) + " <span>" + echap(mots[mots.length - 1]) + "</span>"
   : echap(m.restaurant);
 document.getElementById("sous-titre").textContent = m.sousTitre;
 document.getElementById("contact").textContent = m.adresse + " · " + m.telephone;

@@ -10,8 +10,9 @@
   <meta name="description" content="Ola Latina, restaurant latino-américain à Montréal-Nord : saveurs mexicaines et spécialités salvadoriennes. Découvrez notre carte, notre histoire et nos horaires.">
   <link rel="preload" href="Assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="Assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css?v=20261104">
+  <link rel="stylesheet" href="styles.css?v=20261104">
 </head>
 <body>
   <a href="#contenu" class="skip-link">Aller au contenu</a>
@@ -70,7 +71,6 @@
         <div class="menu-note" id="menu-note"></div>
         <div class="menu-actions">
           <a href="menu.html" class="btn btn-mustard">Voir le menu complet</a>
-          <div class="menu-legend" id="menu-legend"></div>
         </div>
       </div>
     </section>
@@ -100,13 +100,11 @@
         <a href="#galerie" class="btn btn-dark">Découvrir</a>
       </div>
       <div class="split-pattern">
-        <!-- Plat salvadorien en attendant une photo de l'équipe (remplacer par <img src="Assets/histoire.jpg" …>) -->
-        <figure class="photo-frame cadre-plat tilt-left">
-            <picture>
-              <source type="image/webp" srcset="Assets/plats/tamal-400.webp 400w, Assets/plats/tamal.webp 900w" sizes="(min-width: 760px) 340px, 90vw">
-              <img src="Assets/plats/tamal.png" alt="Tamal salvadorien nappé de sauce pipián" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Tamal salvadorien</figcaption>
+        <!-- Cadre vide en attendant une photo (voir le README) :
+             remplacer le <div class="photo-place"> par <img src="Assets/histoire.jpg" alt="…"> et retirer « photo-vide » -->
+        <figure class="photo-frame photo-vide tilt-left">
+            <div class="photo-place" aria-hidden="true"></div>
+            <figcaption>Photo à venir</figcaption>
           </figure>
       </div>
     </section>
@@ -116,27 +114,19 @@
       <div class="container">
         <h2>Tout frais <em>sorti de</em> la cuisine</h2>
         <div class="gallery">
-          <!-- Plats détourés (Assets/plats) ; pour une vraie photo : <figure class="photo-frame"><img src="Assets/photo-1.jpg" alt="…"><figcaption>Photo à venir</figcaption></figure> -->
-          <figure class="photo-frame cadre-plat tilt-left">
-            <picture>
-              <source type="image/webp" srcset="Assets/plats/pupusas-400.webp 400w, Assets/plats/pupusas.webp 900w" sizes="(min-width: 760px) 340px, 90vw">
-              <img src="Assets/plats/pupusas.png" alt="Pupusas servies avec curtido et sauce tomate" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Pupusas</figcaption>
+          <!-- Cadres vides en attendant les photos (voir le README) :
+               remplacer chaque <div class="photo-place"> par <img src="Assets/photo-1.jpg" alt="…" loading="lazy"> et retirer « photo-vide » -->
+          <figure class="photo-frame photo-vide tilt-left">
+            <div class="photo-place" aria-hidden="true"></div>
+            <figcaption>Photo à venir</figcaption>
           </figure>
-          <figure class="photo-frame cadre-plat tilt-right">
-            <picture>
-              <source type="image/webp" srcset="Assets/plats/dejeuner-ola-latina-400.webp 400w, Assets/plats/dejeuner-ola-latina.webp 900w" sizes="(min-width: 760px) 340px, 90vw">
-              <img src="Assets/plats/dejeuner-ola-latina.png" alt="Déjeuner gourmet Ola Latina" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Déjeuner Ola Latina</figcaption>
+          <figure class="photo-frame photo-vide tilt-right">
+            <div class="photo-place" aria-hidden="true"></div>
+            <figcaption>Photo à venir</figcaption>
           </figure>
-          <figure class="photo-frame cadre-plat tilt-left-sm">
-            <picture>
-              <source type="image/webp" srcset="Assets/plats/churro-400.webp 400w, Assets/plats/churro.webp 900w" sizes="(min-width: 760px) 340px, 90vw">
-              <img src="Assets/plats/churro.png" alt="Churros saupoudrés de sucre et de cannelle" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Churros</figcaption>
+          <figure class="photo-frame photo-vide tilt-left-sm">
+            <div class="photo-place" aria-hidden="true"></div>
+            <figcaption>Photo à venir</figcaption>
           </figure>
         </div>
       </div>
@@ -172,11 +162,11 @@
 
   <footer class="site-footer">
     <a href="#accueil" class="logo">Ola <em>Latina</em></a>
-    <p>10701 Av. Bellevois, Montréal-Nord · 514-656-5060</p>
+    <p>10701 Av. Bellevois, Montréal-Nord · <a href="tel:+15146565060" class="nowrap">514-656-5060</a></p>
     <p class="small">&copy; <span id="year"></span> Ola Latina. Tous droits réservés. · <a href="politique-confidentialite.html">Politique de confidentialité</a> · <a href="conditions-utilisation.html">Conditions d'utilisation</a></p>
   </footer>
 
-  <script src="menu-data.js" charset="utf-8"></script>
-  <script src="script.js"></script>
+  <script src="menu-data.js?v=20261104" charset="utf-8"></script>
+  <script src="script.js?v=20261104"></script>
 </body>
 </html>

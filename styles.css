@@ -335,10 +335,12 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 }
 .photo-frame:not(:has(img.missing)) figcaption { visibility: hidden; }
 
-/* Cadre avec un plat détouré : le plat posé sur un aplat de couleur, nom du plat en légende */
-.cadre-plat picture { display: block; }
-.cadre-plat img { object-fit: contain; padding: 12%; filter: drop-shadow(6px 8px 6px rgba(42, 26, 18, 0.35)); }
-figure.photo-frame.cadre-plat figcaption { visibility: visible; color: var(--ink); }
+/* Cadre vide en attendant une photo : aplat de couleur + « Photo à venir » */
+.photo-place { aspect-ratio: 4 / 5; background: var(--orange); }
+figure.photo-frame.photo-vide figcaption { visibility: visible; color: var(--ink); }
+.gallery .photo-frame:nth-child(2) .photo-place { background: var(--teal); }
+.gallery .photo-frame:nth-child(3) .photo-place { background: var(--fuchsia); }
+.split-pattern .photo-place { background: var(--mustard); }
 
 .tilt-right { transform: rotate(3deg); }
 .tilt-left { transform: rotate(-3deg); }
@@ -626,8 +628,7 @@ figure.photo-frame.cadre-plat figcaption { visibility: visible; color: var(--ink
   .gallery .photo-frame:nth-child(2) { margin-top: 2rem; }
 }
 .gallery .photo-frame:nth-child(2) img { background: var(--teal); }
-.gallery .photo-frame:nth-child(3) img { background: var(--mustard); }
-.split-pattern .cadre-plat img { background: var(--mustard); }
+
 .gallery .photo-frame:nth-child(2):has(img.missing)::before { background: var(--teal); }
 .gallery .photo-frame:nth-child(3):has(img.missing)::before { background: var(--fuchsia); }
 
@@ -685,6 +686,8 @@ figure.photo-frame.cadre-plat figcaption { visibility: visible; color: var(--ink
 .site-footer p { margin: 0.6rem 0 0; }
 .site-footer .small { font-size: 0.9375rem; opacity: 0.8; }
 .site-footer .small a { color: inherit; text-underline-offset: 3px; }
+.site-footer p a { color: inherit; }
+.nowrap { white-space: nowrap; }
 
 /* Texte courant à 18 px sur tablette et ordinateur */
 @media (min-width: 768px) {

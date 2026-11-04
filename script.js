@@ -117,16 +117,6 @@ if (menuEl && window.MENU) {
   // Notes sous la carte (pourboire, fermeture, combo…)
   const notes = document.getElementById('menu-note');
   if (notes) notes.innerHTML = (m.notes || []).map((n) => `<p>${echap(n)}</p>`).join('');
-
-  // Légende : seulement les étiquettes utilisées dans les sections affichées
-  const legende = document.getElementById('menu-legend');
-  if (legende) {
-    const utilisees = new Set(sections.flatMap((s) => s.plats.flatMap((p) => p.tags || [])));
-    legende.innerHTML = Object.keys(etiquettes)
-      .filter((t) => utilisees.has(t))
-      .map((t) => `<span class="tag ${t}">${etiquettes[t]}</span>`)
-      .join('');
-  }
 }
 
 // Année courante dans le pied de page
