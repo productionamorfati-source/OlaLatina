@@ -7,7 +7,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#f6ecd9">
   <title>Ola Latina — Restaurant</title>
-  <meta name="description" content="Ola Latina, restaurant latino-américain à Montréal-Nord. Découvrez notre carte, notre histoire et nos horaires.">
+  <meta name="description" content="Ola Latina, restaurant latino-américain à Montréal-Nord : saveurs mexicaines et spécialités salvadoriennes. Découvrez notre carte, notre histoire et nos horaires.">
   <link rel="preload" href="Assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="Assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
@@ -35,7 +35,7 @@
         <p class="kicker">Bienvenue chez</p>
         <h1>Ola<br>Latina</h1>
         <p class="highlight">Cuisine latino-américaine</p>
-        <p class="hero-sub">Restaurant familial à Montréal-Nord.</p>
+        <p class="hero-sub">Saveurs mexicaines et spécialités salvadoriennes, à Montréal-Nord.</p>
         <div class="hero-actions">
           <a href="#carte" class="btn">Voir la carte</a>
           <a href="#contact" class="btn btn-outline">Nous trouver</a>
@@ -43,10 +43,14 @@
       </div>
 
       <div class="hero-visual">
-        <figure class="photo-frame tilt-right">
-          <img src="Assets/hero.jpg" alt="Plat signature d'Ola Latina">
-          <figcaption>Photo à venir</figcaption>
-        </figure>
+        <!-- Plat détouré posé sur une fleur (Assets/plats + Assets/motifs) -->
+        <div class="hero-plat">
+          <img class="deco deco-fleur" src="Assets/motifs/fleur-rouge.svg" alt="" aria-hidden="true">
+          <picture>
+            <source type="image/webp" srcset="Assets/plats/dejeuner-el-ranchero-400.webp 400w, Assets/plats/dejeuner-el-ranchero.webp 900w" sizes="(min-width: 860px) 460px, 85vw">
+            <img class="hero-photo" src="Assets/plats/dejeuner-el-ranchero.png" alt="Déjeuner gourmet El Ranchero : œufs tournés en sauce tomate, chorizo, bananes plantains, haricots noirs, avocat et fruits frais" decoding="async" fetchpriority="high">
+          </picture>
+        </div>
         <div class="sticker" role="img" aria-label="Note de 4,7 sur 5 sur Google">
           <strong aria-hidden="true">4,7 ★</strong>
           <span aria-hidden="true">sur Google</span>
@@ -63,11 +67,23 @@
         <h2>La <em>carte</em></h2>
         <!-- Généré à partir de menu-data.js (le seul fichier à modifier pour la carte) -->
         <div class="menu-sections" id="menu-sections"></div>
-        <p class="menu-note" id="menu-note"></p>
+        <div class="menu-note" id="menu-note"></div>
         <div class="menu-actions">
           <a href="menu.html" class="btn btn-mustard">Voir le menu complet</a>
           <div class="menu-legend" id="menu-legend"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- Vitrine des boissons (générée à partir de menu-data.js) -->
+    <section id="boissons" class="vitrine">
+      <div class="container">
+        <div class="vitrine-titre">
+          <p class="kicker kicker-light">Horchata, jamaica, cocktails…</p>
+          <h2>Quelque chose <em>à boire ?</em></h2>
+        </div>
+        <ul class="vitrine-grid" id="vitrine-boissons"></ul>
+        <a href="menu.html" class="btn btn-mustard">Toutes les boissons</a>
       </div>
     </section>
 
@@ -78,7 +94,9 @@
       <div class="split-text">
         <p class="kicker">Notre histoire</p>
         <h2>Les saveurs <em>de chez nous</em>, à Montréal-Nord</h2>
-        <p>Restaurant familial de cuisine latino-américaine à Montréal-Nord. Texte de présentation à compléter : origine, équipe et ce qui fait son identité.</p>
+        <p>Chez Ola Latina, la cuisine est une histoire de passion, de partage et de découvertes. D'origine salvadorienne, notre inspiration culinaire s'est enrichie au fil des années, notamment grâce à un lien profond avec la culture et les traditions gastronomiques mexicaines : les saveurs du Mexique, inspirées par nos racines salvadoriennes.</p>
+        <p>Aujourd'hui, nous vous proposons un menu qui met à l'honneur les saveurs mexicaines, accompagnées de quelques spécialités salvadoriennes qui nous tiennent à cœur.</p>
+        <p>Chaque plat reflète notre amour de la bonne cuisine, notre désir de vous faire plaisir et notre goût pour les saveurs généreuses. Que vous veniez retrouver un plat que vous aimez ou découvrir une nouvelle spécialité, nous sommes heureux de vous accueillir chez nous.</p>
         <a href="#galerie" class="btn btn-dark">Découvrir</a>
       </div>
       <div class="split-pattern">
@@ -142,7 +160,7 @@
   <footer class="site-footer">
     <a href="#accueil" class="logo">Ola <em>Latina</em></a>
     <p>10701 Av. Bellevois, Montréal-Nord · 514-656-5060</p>
-    <p class="small">&copy; <span id="year"></span> Ola Latina. Tous droits réservés.</p>
+    <p class="small">&copy; <span id="year"></span> Ola Latina. Tous droits réservés. · <a href="politique-confidentialite.html">Politique de confidentialité</a> · <a href="conditions-utilisation.html">Conditions d'utilisation</a></p>
   </footer>
 
   <script src="menu-data.js" charset="utf-8"></script>
