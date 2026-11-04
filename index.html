@@ -80,7 +80,7 @@
       <div class="container">
         <div class="vitrine-titre">
           <p class="kicker kicker-light">Horchata, jamaica, cocktails…</p>
-          <h2>Quelque chose <em>à boire ?</em></h2>
+          <h2>Quelque chose <em>à&nbsp;boire&nbsp;?</em></h2>
         </div>
         <ul class="vitrine-grid" id="vitrine-boissons"></ul>
         <a href="menu.html" class="btn btn-mustard">Toutes les boissons</a>
@@ -92,18 +92,22 @@
     <!-- Histoire : bloc couleur + bloc motif -->
     <section id="histoire" class="split">
       <div class="split-text">
-        <p class="kicker">Notre histoire</p>
-        <h2>Les saveurs <em>de chez nous</em>, à Montréal-Nord</h2>
+        <p class="kicker">Notre histoire · Montréal-Nord</p>
+        <h2>Les saveurs <em>de&nbsp;chez&nbsp;nous</em></h2>
         <p>Chez Ola Latina, la cuisine est une histoire de passion, de partage et de découvertes. D'origine salvadorienne, notre inspiration culinaire s'est enrichie au fil des années, notamment grâce à un lien profond avec la culture et les traditions gastronomiques mexicaines : les saveurs du Mexique, inspirées par nos racines salvadoriennes.</p>
         <p>Aujourd'hui, nous vous proposons un menu qui met à l'honneur les saveurs mexicaines, accompagnées de quelques spécialités salvadoriennes qui nous tiennent à cœur.</p>
         <p>Chaque plat reflète notre amour de la bonne cuisine, notre désir de vous faire plaisir et notre goût pour les saveurs généreuses. Que vous veniez retrouver un plat que vous aimez ou découvrir une nouvelle spécialité, nous sommes heureux de vous accueillir chez nous.</p>
         <a href="#galerie" class="btn btn-dark">Découvrir</a>
       </div>
       <div class="split-pattern">
-        <figure class="photo-frame tilt-left">
-          <img src="Assets/histoire.jpg" alt="L'équipe d'Ola Latina" loading="lazy">
-          <figcaption>Photo à venir</figcaption>
-        </figure>
+        <!-- Plat salvadorien en attendant une photo de l'équipe (remplacer par <img src="Assets/histoire.jpg" …>) -->
+        <figure class="photo-frame cadre-plat tilt-left">
+            <picture>
+              <source type="image/webp" srcset="Assets/plats/tamal-400.webp 400w, Assets/plats/tamal.webp 900w" sizes="(min-width: 760px) 340px, 90vw">
+              <img src="Assets/plats/tamal.png" alt="Tamal salvadorien nappé de sauce pipián" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Tamal salvadorien</figcaption>
+          </figure>
       </div>
     </section>
 
@@ -112,18 +116,27 @@
       <div class="container">
         <h2>Tout frais <em>sorti de</em> la cuisine</h2>
         <div class="gallery">
-          <!-- Remplacer par les photos placées dans Assets/ -->
-          <figure class="photo-frame tilt-left">
-            <img src="Assets/photo-1.jpg" alt="Plat signature" loading="lazy">
-            <figcaption>Photo à venir</figcaption>
+          <!-- Plats détourés (Assets/plats) ; pour une vraie photo : <figure class="photo-frame"><img src="Assets/photo-1.jpg" alt="…"><figcaption>Photo à venir</figcaption></figure> -->
+          <figure class="photo-frame cadre-plat tilt-left">
+            <picture>
+              <source type="image/webp" srcset="Assets/plats/pupusas-400.webp 400w, Assets/plats/pupusas.webp 900w" sizes="(min-width: 760px) 340px, 90vw">
+              <img src="Assets/plats/pupusas.png" alt="Pupusas servies avec curtido et sauce tomate" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Pupusas</figcaption>
           </figure>
-          <figure class="photo-frame tilt-right">
-            <img src="Assets/photo-2.jpg" alt="Salle du restaurant" loading="lazy">
-            <figcaption>Photo à venir</figcaption>
+          <figure class="photo-frame cadre-plat tilt-right">
+            <picture>
+              <source type="image/webp" srcset="Assets/plats/dejeuner-ola-latina-400.webp 400w, Assets/plats/dejeuner-ola-latina.webp 900w" sizes="(min-width: 760px) 340px, 90vw">
+              <img src="Assets/plats/dejeuner-ola-latina.png" alt="Déjeuner gourmet Ola Latina" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Déjeuner Ola Latina</figcaption>
           </figure>
-          <figure class="photo-frame tilt-left-sm">
-            <img src="Assets/photo-3.jpg" alt="Dessert" loading="lazy">
-            <figcaption>Photo à venir</figcaption>
+          <figure class="photo-frame cadre-plat tilt-left-sm">
+            <picture>
+              <source type="image/webp" srcset="Assets/plats/churro-400.webp 400w, Assets/plats/churro.webp 900w" sizes="(min-width: 760px) 340px, 90vw">
+              <img src="Assets/plats/churro.png" alt="Churros saupoudrés de sucre et de cannelle" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Churros</figcaption>
           </figure>
         </div>
       </div>

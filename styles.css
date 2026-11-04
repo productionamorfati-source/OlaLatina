@@ -10,6 +10,7 @@
   --ink: #2a1a12;
   --orange: #e2581f;
   --fuchsia: #d6336c;
+  --fuchsia-texte: #c22a5f; /* fuchsia un peu plus foncé pour le petit texte : contraste 4,7:1 sur crème */
   --violet: #4f2463;
   --mustard: #f2b705;
   --teal: #1f7a6d;
@@ -43,7 +44,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1.0625rem; /* 17 px sur téléphone, 18 px dès 768 px (voir plus bas) */
   color: var(--ink);
   background: var(--cream);
   line-height: 1.6;
@@ -106,10 +107,10 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   font-family: var(--font-body);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  font-size: 0.875rem;
   margin: 0 0 0.8rem;
-  color: var(--fuchsia);
+  color: var(--fuchsia-texte);
 }
 .kicker-light { color: var(--mustard); }
 
@@ -127,7 +128,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 0.85rem;
+  font-size: 0.9375rem;
   text-decoration: none;
   transition: transform 0.15s ease;
 }
@@ -136,7 +137,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 }
 .btn:active { transform: translateY(1px); }
 .btn-small { padding: 0.45rem 1rem; min-height: 40px; }
-.btn-outline { background: transparent; color: var(--fuchsia); }
+.btn-outline { background: transparent; color: var(--fuchsia-texte); }
 .btn-dark { background: var(--ink); border-color: var(--ink); color: var(--white); }
 .btn-outline-dark { background: transparent; border-color: var(--ink); color: var(--ink); }
 
@@ -202,7 +203,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding: 0.8rem 0;
 }
 .site-nav .btn { align-self: flex-start; padding: 0.45rem 1.2rem; margin-top: 0.4rem; }
@@ -221,7 +222,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
     max-height: none;
     overflow: visible;
   }
-  .site-nav a { padding: 0.5rem 0; font-size: 0.85rem; }
+  .site-nav a { padding: 0.5rem 0; font-size: 0.9375rem; }
   .site-nav .btn { margin-top: 0; }
   .site-nav a:not(.btn):hover { color: var(--fuchsia); }
 }
@@ -260,17 +261,18 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   background: var(--mustard);
   font-family: var(--font-title);
   font-weight: 900;
-  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem); /* tient sur une ligne sur ordinateur */
   text-transform: uppercase;
   line-height: 1.1;
   transform: rotate(-1.5deg);
 }
 
-.hero-sub { font-size: 1.15rem; margin: 0 0 1.6rem; }
+.hero-sub { font-size: 1.3rem; line-height: 1.45; margin: 0 0 1.6rem; max-width: 30ch; }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 
 .hero-visual { position: relative; padding: 1rem; }
+.hero-text, .hero-visual { min-width: 0; }
 /* Une seule colonne (téléphone, iPad à la verticale) : photo de taille raisonnable */
 @media (max-width: 859px) {
   .hero-visual { width: min(420px, 100%); margin: 0 auto; }
@@ -280,9 +282,9 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 .sticker {
   position: absolute;
   top: -0.5rem;
-  right: 0;
-  width: clamp(92px, 26vw, 112px);
-  height: clamp(92px, 26vw, 112px);
+  right: 0.5rem;
+  width: clamp(100px, 27vw, 118px);
+  height: clamp(100px, 27vw, 118px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -294,7 +296,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   transform: rotate(12deg);
 }
 .sticker strong { font-family: var(--font-title); font-size: 1.5rem; line-height: 1; font-variant-numeric: lining-nums; }
-.sticker span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.sticker span { max-width: 72%; margin-top: 0.15rem; font-size: 0.75rem; font-weight: 700; line-height: 1.1; text-transform: uppercase; letter-spacing: 0.06em; } /* « Sur / Google » sur 2 lignes : reste dans l'étoile */
 
 /* ---------- Cadres photo inclinés ---------- */
 .photo-frame {
@@ -329,13 +331,53 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   font-family: var(--font-title);
   font-style: italic;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 .photo-frame:not(:has(img.missing)) figcaption { visibility: hidden; }
+
+/* Cadre avec un plat détouré : le plat posé sur un aplat de couleur, nom du plat en légende */
+.cadre-plat picture { display: block; }
+.cadre-plat img { object-fit: contain; padding: 12%; filter: drop-shadow(6px 8px 6px rgba(42, 26, 18, 0.35)); }
+figure.photo-frame.cadre-plat figcaption { visibility: visible; color: var(--ink); }
 
 .tilt-right { transform: rotate(3deg); }
 .tilt-left { transform: rotate(-3deg); }
 .tilt-left-sm { transform: rotate(-1.5deg); }
+
+/* ---------- Plats détourés + fleurs (Assets/plats, Assets/motifs) ---------- */
+:root { --flower-black: #1c1b1d; }
+
+/* Accueil : grand plat posé sur une fleur rouge */
+.hero-plat {
+  position: relative;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.hero-plat .deco { position: absolute; pointer-events: none; }
+.deco-fleur { inset: -4%; width: 108%; height: 108%; transform: rotate(-8deg); }
+.hero-plat picture { position: relative; width: 86%; }
+.hero-photo {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 14px 18px rgba(42, 26, 18, 0.35));
+}
+
+/* Photo d'un plat dans une case carrée (carte de l'accueil) */
+.plat-visuel {
+  position: relative;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+/* Photo contenue dans la case carrée, quelle que soit sa forme (assiette large ou verre haut) */
+.plat-visuel picture { position: absolute; inset: 8%; display: block; }
+.plat-visuel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35));
+}
 
 /* ---------- Carte (inspiration affiche menu) ---------- */
 .menu {
@@ -357,8 +399,86 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   break-inside: avoid;
   margin-bottom: 2.5rem;
 }
+/* Photo de la catégorie, en haut à droite, qui déborde sur le titre */
+.menu-group-visuel {
+  float: right;
+  width: clamp(120px, 32%, 170px);
+  margin: -1.2rem -0.4rem 0.4rem 0.8rem;
+}
+
+/* ---------- Vitrine des boissons ---------- */
+.vitrine {
+  background: var(--flower-black);
+  color: var(--white);
+  padding: 4.5rem 0;
+}
+.vitrine h2 { color: var(--mustard); margin: 0; }
+.vitrine h2 em { color: var(--white); }
+.vitrine-titre .kicker { margin-bottom: 0.8rem; }
+.vitrine-grid {
+  list-style: none;
+  margin: 2rem 0 2.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (min-width: 640px) { .vitrine-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1000px) {
+  .vitrine-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .vitrine-grid .vitrine-nom { font-size: 1rem; }
+}
+.vitrine-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0.6rem 0.9rem;
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 999px 999px var(--radius) var(--radius);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+/* Boissons redressées sur un même canevas 700 × 900 : toutes à la même hauteur, posées sur une ombre */
+.vitrine-item picture { position: relative; display: block; width: 100%; }
+.vitrine-item picture::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 0;
+  height: 7%;
+  border-radius: 50%;
+  background: rgba(42, 26, 18, 0.35);
+  filter: blur(6px);
+}
+.vitrine-item img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 7 / 9;
+  object-fit: contain;
+  filter: drop-shadow(6px 8px 6px rgba(42, 26, 18, 0.35));
+}
+.vitrine-nom {
+  margin-top: 0.6rem;
+  font-family: var(--font-title);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.15;
+  font-size: 1.125rem;
+}
+.vitrine-prix {
+  margin-top: 0.25rem;
+  font-family: var(--font-title);
+  font-weight: 900;
+  color: var(--violet);
+  font-variant-numeric: lining-nums;
+}
 .menu-group h3 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
   color: var(--white);
   margin: 0 0 1.2rem;
   padding-bottom: 0.5rem;
@@ -386,7 +506,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 .dish-name {
   font-family: var(--font-title);
   font-weight: 900;
-  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+  font-size: clamp(1.2rem, 2.6vw, 1.45rem);
   text-transform: uppercase;
   line-height: 1.15;
   font-variant-numeric: lining-nums;
@@ -401,7 +521,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 .dish .price {
   font-family: var(--font-title);
   font-weight: 900;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-variant-numeric: lining-nums;
   white-space: nowrap;
 }
@@ -411,7 +531,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 .tag {
   flex: none;
   align-self: center;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -423,6 +543,25 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 .tag.epice { background: var(--fuchsia); color: var(--white); }
 
 .menu-note { margin: 0.5rem 0 1.5rem; opacity: 0.85; font-style: italic; }
+.menu-note p { margin: 0.25rem 0; }
+
+/* Prix à plusieurs formats longs (Sans alcool / Simple / Double…) */
+.price-variants {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-variant-numeric: lining-nums;
+}
+
+/* Avertissement d'allergène : bien visible */
+.allergene {
+  display: inline-block;
+  margin: 0.4rem 0 0;
+  padding: 0.15rem 0.6rem;
+  border-left: 4px solid var(--mustard);
+  background: rgba(255, 250, 240, 0.12);
+  font-size: 1rem;
+}
+.allergene strong { color: var(--mustard); }
 
 .menu-actions {
   display: flex;
@@ -449,14 +588,15 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 @media (min-width: 860px) {
   .split-text { padding: 5rem max(2rem, calc((100vw - var(--max-width)) / 2 + 16px)); padding-right: 3rem; }
 }
-.split-text .kicker { color: var(--white); }
-.split-text h2 { color: var(--mustard); }
+.split-text .kicker { color: var(--ink); }
+.split-text h2 { color: var(--ink); line-height: 1.05; }
 .split-text h2 em { color: var(--white); }
 .split-text p { max-width: 34rem; margin: 0 0 1.6rem; }
 
 .split-pattern {
-  background: var(--tiles) repeat;
-  background-size: 60px 60px;
+  /* Fond fleuri sur noir (inspiration table fleurie) */
+  background: var(--flower-black) url("Assets/motifs/fond-fleurs.svg") repeat;
+  background-size: 360px 360px;
   padding: 3.5rem max(2rem, var(--gutter-r)) 3.5rem max(2rem, var(--gutter-l));
   display: flex;
   align-items: center;
@@ -486,6 +626,8 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   .gallery .photo-frame:nth-child(2) { margin-top: 2rem; }
 }
 .gallery .photo-frame:nth-child(2) img { background: var(--teal); }
+.gallery .photo-frame:nth-child(3) img { background: var(--mustard); }
+.split-pattern .cadre-plat img { background: var(--mustard); }
 .gallery .photo-frame:nth-child(2):has(img.missing)::before { background: var(--teal); }
 .gallery .photo-frame:nth-child(3):has(img.missing)::before { background: var(--fuchsia); }
 
@@ -541,7 +683,13 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
 }
 .site-footer .logo { font-size: 2rem; }
 .site-footer p { margin: 0.6rem 0 0; }
-.site-footer .small { font-size: 0.85rem; opacity: 0.7; }
+.site-footer .small { font-size: 0.9375rem; opacity: 0.8; }
+.site-footer .small a { color: inherit; text-underline-offset: 3px; }
+
+/* Texte courant à 18 px sur tablette et ordinateur */
+@media (min-width: 768px) {
+  body { font-size: 1.125rem; }
+}
 
 /* ---------- Accessibilité : mouvements réduits ---------- */
 @media (prefers-reduced-motion: reduce) {
