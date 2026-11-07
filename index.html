@@ -8,11 +8,23 @@
   <meta name="theme-color" content="#f6ecd9">
   <title>Ola Latina — Restaurant</title>
   <meta name="description" content="Ola Latina, restaurant latino-américain à Montréal-Nord : saveurs mexicaines et spécialités salvadoriennes. Découvrez notre carte, notre histoire et nos horaires.">
+  <!-- Aperçu au partage (Facebook, Messenger, texto…) : adresses absolues obligatoires, à changer si le site change de domaine -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:site_name" content="Ola Latina">
+  <meta property="og:title" content="Ola Latina · Restaurant latino-américain à Montréal-Nord">
+  <meta property="og:description" content="Saveurs mexicaines et spécialités salvadoriennes, au 10701 Av. Bellevois. Découvrez notre carte et nos horaires.">
+  <meta property="og:url" content="https://productionamorfati-source.github.io/OlaLatina/">
+  <meta property="og:image" content="https://productionamorfati-source.github.io/OlaLatina/Assets/photos/partage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Devanture du restaurant Ola Latina avec son enseigne et sa guirlande de drapeaux">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="Assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="Assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="fonts.css?v=20261104">
-  <link rel="stylesheet" href="styles.css?v=20261104">
+  <link rel="stylesheet" href="fonts.css?v=20261105">
+  <link rel="stylesheet" href="styles.css?v=20261105">
 </head>
 <body>
   <a href="#contenu" class="skip-link">Aller au contenu</a>
@@ -100,11 +112,12 @@
         <a href="#galerie" class="btn btn-dark">Découvrir</a>
       </div>
       <div class="split-pattern">
-        <!-- Cadre vide en attendant une photo (voir le README) :
-             remplacer le <div class="photo-place"> par <img src="Assets/histoire.jpg" alt="…"> et retirer « photo-vide » -->
-        <figure class="photo-frame photo-vide tilt-left">
-            <div class="photo-place" aria-hidden="true"></div>
-            <figcaption>Photo à venir</figcaption>
+        <figure class="photo-frame tilt-left">
+            <picture>
+              <source type="image/webp" srcset="Assets/photos/enseigne-500.webp 500w, Assets/photos/enseigne.webp 1000w" sizes="(min-width: 760px) 340px, 90vw">
+              <img src="Assets/photos/enseigne.jpg" alt="Le logo Ola Latina peint sur la vitrine du restaurant, décorée de rosaces en papier" width="1000" height="1332" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Bienvenue chez nous</figcaption>
           </figure>
       </div>
     </section>
@@ -114,19 +127,27 @@
       <div class="container">
         <h2>Tout frais <em>sorti de</em> la cuisine</h2>
         <div class="gallery">
-          <!-- Cadres vides en attendant les photos (voir le README) :
-               remplacer chaque <div class="photo-place"> par <img src="Assets/photo-1.jpg" alt="…" loading="lazy"> et retirer « photo-vide » -->
-          <figure class="photo-frame photo-vide tilt-left">
-            <div class="photo-place" aria-hidden="true"></div>
-            <figcaption>Photo à venir</figcaption>
+          <!-- Photos du restaurant (Assets/photos) : WebP + JPG de secours -->
+          <figure class="photo-frame tilt-left">
+            <picture>
+              <source type="image/webp" srcset="Assets/photos/exterieur-500.webp 500w, Assets/photos/exterieur.webp 1000w" sizes="(min-width: 760px) 340px, 90vw">
+              <img src="Assets/photos/exterieur.jpg" alt="La devanture en brique d'Ola Latina, avec son enseigne et sa terrasse, au 10701 avenue Bellevois" width="1000" height="1332" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>La devanture</figcaption>
           </figure>
-          <figure class="photo-frame photo-vide tilt-right">
-            <div class="photo-place" aria-hidden="true"></div>
-            <figcaption>Photo à venir</figcaption>
+          <figure class="photo-frame tilt-right">
+            <picture>
+              <source type="image/webp" srcset="Assets/photos/comptoir-bonbons-500.webp 500w, Assets/photos/comptoir-bonbons.webp 1000w" sizes="(min-width: 760px) 340px, 90vw">
+              <img src="Assets/photos/comptoir-bonbons.jpg" alt="Le comptoir de commande et ses bocaux de bonbons latino-américains" width="1000" height="1332" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Au comptoir</figcaption>
           </figure>
-          <figure class="photo-frame photo-vide tilt-left-sm">
-            <div class="photo-place" aria-hidden="true"></div>
-            <figcaption>Photo à venir</figcaption>
+          <figure class="photo-frame tilt-left-sm">
+            <picture>
+              <source type="image/webp" srcset="Assets/photos/cuisine-carottes-500.webp 500w, Assets/photos/cuisine-carottes.webp 1000w" sizes="(min-width: 760px) 340px, 90vw">
+              <img src="Assets/photos/cuisine-carottes.jpg" alt="En cuisine : des carottes coupées à la main sur la planche" width="1000" height="1332" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Fait maison</figcaption>
           </figure>
         </div>
       </div>
@@ -166,7 +187,7 @@
     <p class="small">&copy; <span id="year"></span> Ola Latina. Tous droits réservés. · <a href="politique-confidentialite.html">Politique de confidentialité</a> · <a href="conditions-utilisation.html">Conditions d'utilisation</a></p>
   </footer>
 
-  <script src="menu-data.js?v=20261104" charset="utf-8"></script>
-  <script src="script.js?v=20261104"></script>
+  <script src="menu-data.js?v=20261105" charset="utf-8"></script>
+  <script src="script.js?v=20261105"></script>
 </body>
 </html>
