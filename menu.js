@@ -47,13 +47,13 @@ document.getElementById("sections").innerHTML = m.sections.map(s => `
     ${s.intro ? `<p class="intro">${echap(s.intro)}</p>` : ""}
     ${allergene(s.allergene)}
     ${s.plats.map(p => `
-      <div class="plat${p.image ? " avec-photo" : ""}">
-        <div class="plat-texte">
+      <div class="plat${p.image ? " avec-photo" : ""}${p.image && !p.description && !p.allergene ? " sans-desc" : ""}">
         <div class="ligne">
           <span><span class="nom-plat">${echap(p.nom)}</span>${(p.tags || []).map(t => ` <span class="tag ${echap(t)}">${etiquettes[t] || echap(t)}</span>`).join("")}</span>
           ${prixCourt(p) ? `<span class="points"></span><span class="prix">${echap(prix(p))}</span>` : ""}
         </div>
         ${prixCourt(p) ? "" : `<p class="prix-variantes">${echap(prix(p))}</p>`}
+        <div class="plat-texte">
         ${p.description ? `<p class="desc">${echap(p.description)}</p>` : ""}
         ${allergene(p.allergene)}
         </div>

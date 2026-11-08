@@ -42,11 +42,11 @@ window.MENU = {
     {
       titre: "Offres de la semaine",
       plats: [
-        { nom: "Lundi : 2 pupusas, soupe du jour et boisson en canette", prix: 20 },
+        { nom: "Lundi : 2 pupusas, soupe du jour et boisson en canette", image: "2-pupusas-soupe", prix: 20 },
         { nom: "Lundi : 2 pupusas et boisson", prix: 13 },
-        { nom: "Mercredi : assiette de porc frit et boisson en canette", description: "Porc frit, salade, bananes plantains, haricots noirs, riz blanc et 2 tortillas.", prix: 20 },
+        { nom: "Mercredi : assiette de porc frit et boisson en canette", image: "2-assiette-porc-frit", description: "Porc frit, salade, bananes plantains, haricots noirs, riz blanc et 2 tortillas.", prix: 20 },
         { nom: "Jeudi : 3 quesabirrias et boisson en canette", prix: 20 },
-        { nom: "Vendredi, samedi et dimanche : tacos, soupe du jour et boisson en canette", description: "Tacos al pastor ou au poulet.", prix: 25 }
+        { nom: "Vendredi, samedi et dimanche : tacos, soupe du jour et boisson en canette", image: "2-tacos-soupe", description: "Tacos al pastor ou au poulet.", prix: 25 }
       ]
     },
     {
@@ -86,8 +86,8 @@ window.MENU = {
       titre: "Petits déjeuners",
       intro: "Servis jusqu'à 13 h.",
       plats: [
-        { nom: "Déjeuner pour enfant", description: "Une quesadilla au fromage, un œuf tourné, des fruits frais et un petit jus.", prix: 10 },
-        { nom: "Mini déjeuner", description: "Deux œufs tournés, deux saucisses à déjeuner, deux tortillas, des fruits frais et un café maison.", prix: 10 }
+        { nom: "Déjeuner pour enfant", image: "2-dejeuner-enfant", description: "Une quesadilla au fromage, un œuf tourné, des fruits frais et un petit jus.", prix: 10 },
+        { nom: "Mini déjeuner", image: "2-mini-dejeuner", description: "Deux œufs tournés, deux saucisses à déjeuner, deux tortillas, des fruits frais et un café maison.", prix: 10 }
       ]
     },
     {
@@ -99,9 +99,9 @@ window.MENU = {
         { nom: "Tacos al pastor", description: "Porc mariné, accompagné d'ananas.", prix: 20 },
         { nom: "Tacos au steak", prix: 22 },
         { nom: "Tacos au chorizo et fromage", description: "Chorizo (saucisse de porc haché) et fromage fondant.", prix: 23 },
-        { nom: "Tacos au poisson", description: "Tortillas de maïs molles garnies de poisson pané, de champignons, d'oignons blancs, d'avocat et de légumes frais avec des oignons marinés, le tout nappé d'une sauce crémeuse au chipotle et à la mayonnaise.", prix: 25 },
-        { nom: "Tacos quesabirria", description: "Tortillas croustillantes garnies de bœuf et de fromage fondant.", prix: 28 },
-        { nom: "Tacos aux crevettes", image: "tacos-crevettes", description: "Tortillas de maïs molles garnies de crevettes, d'avocat, de fromage fondant, de laitue croquante et de champignons sautés avec oignons blancs.", prix: 28 }
+        { nom: "Tacos au poisson", image: "2-tacos-poisson", description: "Tortillas de maïs molles garnies de poisson pané, de champignons, d'oignons blancs, d'avocat et de légumes frais avec des oignons marinés, le tout nappé d'une sauce crémeuse au chipotle et à la mayonnaise.", prix: 25 },
+        { nom: "Tacos quesabirria", image: "2-tacos-quesabirria", description: "Tortillas croustillantes garnies de bœuf et de fromage fondant.", prix: 28 },
+        { nom: "Tacos aux crevettes", image: "2-tacos-crevettes", description: "Tortillas de maïs molles garnies de crevettes, d'avocat, de fromage fondant, de laitue croquante et de champignons sautés avec oignons blancs.", prix: 28 }
       ]
     },
     {
@@ -117,7 +117,7 @@ window.MENU = {
     },
     {
       titre: "Nachos",
-      image: "nachos",
+      image: "2-nachos",
       intro: "Nos nachos croustillants sont faits de maïs et garnis de haricots noirs, de fromage fondant, de crème sure, d'oignons et de coriandre, et accompagnés d'un quartier de citron ou de lime.",
       note: "Promotion : nachos au fromage + lot de 5 bières, 45 $.",
       plats: [
@@ -168,7 +168,7 @@ window.MENU = {
       titre: "Salades-repas",
       intro: "Toutes nos salades contiennent de la laitue romaine, du concombre, des champignons sautés, des oignons, du fromage feta et un quartier de citron ou de lime.",
       plats: [
-        { nom: "Salade au poulet", prix: 20 },
+        { nom: "Salade au poulet", image: "2-salade-poulet", prix: 20 },
         { nom: "Salade végétarienne", prix: 20, tags: ["vege"] },
         { nom: "Salade au steak", prix: 25 },
         { nom: "Salade aux crevettes", prix: 25 }
@@ -191,14 +191,14 @@ window.MENU = {
     {
       titre: "Combos festin à partager",
       plats: [
-        { nom: "Combo Latina", description: "Bananes plantains frites, yuca (manioc) frite, chicharrón (porc frit), 4 tacos al pastor (porc mariné et ananas) et 2 canettes de Coca-Cola.", prix: 50 }
+        { nom: "Combo Latina", image: "2-combo-latina", description: "Bananes plantains frites, yuca (manioc) frite, chicharrón (porc frit), 4 tacos al pastor (porc mariné et ananas) et 2 canettes de Coca-Cola.", prix: 50 }
       ]
     },
     {
       titre: "Fête de tacos",
       plats: [
         { nom: "Ronda de tacos (24 unités)", description: "4 tacos al pastor, 8 tacos au poulet, 8 tacos au chorizo, 4 tacos au steak et 2 canettes de Coca-Cola.", prix: 90 },
-        { nom: "Ronda de quesatacos (12 unités)", description: "4 quesabirrias, 4 tacos aux crevettes avec des morceaux d'avocat, 4 tacos au steak et fromage, et 1 pichet de limonade.", prix: 90 }
+        { nom: "Ronda de quesatacos (12 unités)", image: "2-ronda-quesatacos", description: "4 quesabirrias, 4 tacos aux crevettes avec des morceaux d'avocat, 4 tacos au steak et fromage, et 1 pichet de limonade.", prix: 90 }
       ]
     },
     {
@@ -247,7 +247,7 @@ window.MENU = {
       accueil: true,
       plats: [
         { nom: "Churro", image: "churro", description: "Beignet frit fourré au dulce de leche (confiserie traditionnelle à base de lait concentré caramélisé).", prix: 4 },
-        { nom: "Alfajor", description: "Deux biscuits sablés enrobés de noix de coco et garnis de dulce de leche.", prix: 5 },
+        { nom: "Alfajor", image: "2-alfajor", description: "Deux biscuits sablés enrobés de noix de coco et garnis de dulce de leche.", prix: 5 },
         { nom: "Pouding au riz", image: "pouding-riz", description: "Riz cuit dans du lait condensé et de la vanille, saupoudré de cannelle.", prix: 5 },
         { nom: "Quesadilla salvadorienne", image: "quesadilla-salvadorienne", description: "Pain aux 5 fromages (feta, mozzarella, parmesan, mascarpone et ricotta), saupoudré de graines de sésame.", prix: { P: 5, G: 15 } },
         { nom: "Tiramisu", image: "tiramisu", description: "Dessert italien composé de couches de biscuits imbibés de café et de crème au mascarpone.", prix: 5 }
