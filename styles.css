@@ -665,6 +665,20 @@ figure.photo-frame.photo-vide figcaption { visibility: visible; color: var(--ink
 .address a, .phone a { display: inline-block; padding: 0.15rem 0; }
 .contact-where .hero-actions { margin-top: 1.6rem; }
 
+
+/* ===== COMMANDER EN LIGNE (livraison) ===== */
+.order {
+  background: var(--violet);
+  color: var(--white);
+  padding: 4rem var(--gutter-r) 4rem var(--gutter-l);
+  text-align: center;
+}
+.order h2 { color: var(--white); margin: 0 0 1rem; }
+.order h2 em { color: var(--mustard); }
+.order-lead { max-width: 42ch; margin: 0 auto; }
+.order .hero-actions { justify-content: center; margin-top: 1.8rem; }
+.btn-light { background: transparent; border-color: var(--white); color: var(--white); }
+
 .contact-hours { background: var(--fuchsia); color: var(--white); }
 .contact-hours h2 { color: var(--white); }
 
