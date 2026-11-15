@@ -7,27 +7,34 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#f6ecd9">
-  <title>Page introuvable · Ola Latina</title>
+  <title data-i18n="404.titre">Page introuvable · Ola Latina</title>
   <!-- Chemins relatifs : fonctionne à la racine d'un domaine comme dans un sous-dossier (GitHub Pages /OlaLatina/),
        pour les adresses introuvables du premier niveau (ex. /OlaLatina/page-inexistante) -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="fonts.css?v=20261108">
-  <link rel="stylesheet" href="menu.css?v=20261108">
+  <link rel="stylesheet" href="fonts.css?v=20261115">
+  <link rel="stylesheet" href="menu.css?v=20261115">
 </head>
 <body>
   <main class="page page-404">
+    <div class="langues langues-404" role="group" aria-label="Langue · Language · Idioma">
+      <button type="button" data-langue="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+      <button type="button" data-langue="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+      <button type="button" data-langue="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+    </div>
     <picture>
       <source type="image/webp" srcset="Assets/plats/2-tacos-crevettes-400.webp">
       <img src="Assets/plats/2-tacos-crevettes.png" alt="" width="220" height="220">
     </picture>
     <p class="code-404">404</p>
-    <h1>Cette page n'est <span>pas au menu</span></h1>
-    <p>Le lien est peut-être erroné, ou la page a été déplacée. Pas de panique, la cuisine est toujours ouverte !</p>
+    <h1 data-i18n="404.h1">Cette page n'est <span>pas au menu</span></h1>
+    <p data-i18n="404.texte">Le lien est peut-être erroné, ou la page a été déplacée. Pas de panique, la cuisine est toujours ouverte !</p>
     <div class="actions-404">
-      <a href="index.html" class="bouton">Retour à l'accueil</a>
-      <a href="menu.html" class="bouton bouton-contour">Voir le menu</a>
+      <a href="index.html" class="bouton" data-i18n="404.accueil">Retour à l'accueil</a>
+      <a href="menu.html" class="bouton bouton-contour" data-i18n="404.menu">Voir le menu</a>
     </div>
-    <p class="aide-404">Une question ? Appelez-nous au <a href="tel:+15146565060">514-656-5060</a>.</p>
+    <p class="aide-404" data-i18n="404.aide">Une question ? Appelez-nous au <a href="tel:+15146565060">514-656-5060</a>.</p>
   </main>
+  <script src="traductions.js?v=20261115" charset="utf-8"></script>
+  <script src="langue.js?v=20261115"></script>
 </body>
 </html>

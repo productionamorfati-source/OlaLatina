@@ -6,24 +6,31 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#f6ecd9">
-  <title>Conditions d'utilisation · Ola Latina</title>
-  <meta name="description" content="Conditions d'utilisation et mentions légales du site d'Ola Latina, restaurant latino-américain à Montréal-Nord.">
+  <title data-i18n="conditions.titre">Conditions d'utilisation · Ola Latina</title>
+  <meta name="description" data-i18n-content="conditions.description" content="Conditions d'utilisation et mentions légales du site d'Ola Latina, restaurant latino-américain à Montréal-Nord.">
   <link rel="preload" href="Assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="Assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="fonts.css?v=20261108">
-  <link rel="stylesheet" href="menu.css?v=20261108">
+  <link rel="stylesheet" href="fonts.css?v=20261115">
+  <link rel="stylesheet" href="menu.css?v=20261115">
 </head>
 <body>
   <main class="page">
-    <a href="index.html" class="retour">← Retour au site</a>
+    <div class="barre-haut">
+      <a href="index.html" class="retour" data-i18n="commun.retour">← Retour au site</a>
+      <div class="langues" role="group" aria-label="Langue · Language · Idioma">
+        <button type="button" data-langue="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+        <button type="button" data-langue="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+        <button type="button" data-langue="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+      </div>
+    </div>
     <header>
-      <h1>Conditions <span>d'utilisation</span></h1>
+      <h1 data-i18n="conditions.h1">Conditions <span>d'utilisation</span></h1>
       <p class="sous-titre">Ola Latina · Montréal-Nord</p>
     </header>
 
     <!-- Les passages surlignés (.a-completer) sont à remplir avant la mise en ligne -->
-    <div class="texte-legal">
+    <div class="texte-legal" data-i18n="conditions.corps">
       <p>Dernière mise à jour : 6 novembre 2026</p>
       <p>En consultant ce site, vous acceptez les conditions ci-dessous. Elles visent surtout à vous informer clairement sur la carte, les prix et les allergènes.</p>
 
@@ -83,8 +90,10 @@
 
     <footer>
       <p>Ola Latina · 10701 Av. Bellevois, Montréal-Nord · 514-656-5060</p>
-      <p class="legende"><a href="politique-confidentialite.html">Politique de confidentialité</a></p>
+      <p class="legende"><a href="politique-confidentialite.html" data-i18n="commun.confidentialite">Politique de confidentialité</a></p>
     </footer>
   </main>
+  <script src="traductions.js?v=20261115" charset="utf-8"></script>
+  <script src="langue.js?v=20261115"></script>
 </body>
 </html>

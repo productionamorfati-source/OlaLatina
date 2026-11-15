@@ -131,12 +131,34 @@ footer a { color: inherit; }
 .menu-complet footer { color: var(--white); border-top: 3px solid var(--mustard); opacity: .9; }
 .menu-complet a:focus-visible { outline-color: var(--mustard); }
 
+/* Choix de la langue (FR / EN / ES) : en haut des pages, à côté du lien de retour */
+.barre-haut { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 14px; }
+.barre-haut .retour { margin-bottom: 0; }
+.langues { display: flex; }
+.langues button {
+  min-width: 40px; min-height: 40px; padding: 0 7px;
+  border: 2px solid var(--ink); background: transparent; color: var(--ink);
+  font: 700 .8125rem/1 "DM Sans", system-ui, sans-serif; letter-spacing: .06em; cursor: pointer;
+}
+.langues button + button { margin-left: -2px; }
+.langues button:first-child { border-radius: 6px 0 0 6px; }
+.langues button:last-child { border-radius: 0 6px 6px 0; }
+.langues button[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
+@media (hover: hover) { .langues button[aria-pressed="false"]:hover { background: #fbeccf; } }
+.langues button:focus-visible { position: relative; z-index: 1; }
+.menu-complet .langues button { border-color: var(--mustard); color: var(--mustard); }
+.menu-complet .langues button[aria-pressed="true"] { background: var(--mustard); color: var(--ink); }
+@media (hover: hover) { .menu-complet .langues button[aria-pressed="false"]:hover { background: rgba(242, 183, 5, .18); } }
+.langues-404 { margin-bottom: 20px; }
+/* Pages légales traduites : rappel que le français fait foi */
+.note-traduction { font-style: italic; color: var(--muted); }
+
 /* Version imprimée : format lettre (plusieurs pages), fond blanc, sans lien de retour */
 @page { size: letter; margin: 14mm; }
 @media print {
   body { background: #fff; font-size: 10.5pt; }
   .page { max-width: none; padding: 0; }
-  .retour { display: none; }
+  .retour, .langues { display: none; }
   header { margin-bottom: 20px; padding-bottom: 12px; }
   header h1 { font-size: 34pt; }
   .colonnes { columns: 2; column-gap: 32px; }

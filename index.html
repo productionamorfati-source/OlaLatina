@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#f6ecd9">
-  <title>Ola Latina — Restaurant</title>
-  <meta name="description" content="Ola Latina, restaurant latino-américain à Montréal-Nord : saveurs mexicaines et spécialités salvadoriennes. Découvrez notre carte, notre histoire et nos horaires.">
+  <title data-i18n="accueil.titre">Ola Latina — Restaurant</title>
+  <meta name="description" data-i18n-content="accueil.description" content="Ola Latina, restaurant latino-américain à Montréal-Nord : saveurs mexicaines et spécialités salvadoriennes. Découvrez notre carte, notre histoire et nos horaires.">
   <!-- Aperçu au partage (Facebook, Messenger, texto…) : adresses absolues obligatoires, à changer si le site change de domaine -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_CA">
@@ -23,21 +23,28 @@
   <link rel="preload" href="Assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="Assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="fonts.css?v=20261108">
-  <link rel="stylesheet" href="styles.css?v=20261108">
+  <link rel="stylesheet" href="fonts.css?v=20261115">
+  <link rel="stylesheet" href="styles.css?v=20261115">
+  <link rel="stylesheet" href="zoom.css?v=20261115">
 </head>
 <body>
-  <a href="#contenu" class="skip-link">Aller au contenu</a>
+  <a href="#contenu" class="skip-link" data-i18n="accueil.evitement">Aller au contenu</a>
 
   <header class="site-header">
     <a href="#accueil" class="logo">Ola <em>Latina</em></a>
+    <!-- Choix de la langue (langue.js, traductions.js) -->
+    <div class="langues" role="group" aria-label="Langue · Language · Idioma">
+      <button type="button" data-langue="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+      <button type="button" data-langue="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+      <button type="button" data-langue="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+    </div>
     <button type="button" class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true">☰</span></button>
     <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
-      <a href="#carte">Carte</a>
-      <a href="#histoire">Notre histoire</a>
-      <a href="#galerie">Galerie</a>
-      <a href="#contact">Contact</a>
-      <a href="tel:+15146565060" class="btn btn-small">Appeler</a>
+      <a href="#carte" data-i18n="nav.carte">Carte</a>
+      <a href="#histoire" data-i18n="nav.histoire">Notre histoire</a>
+      <a href="#galerie" data-i18n="nav.galerie">Galerie</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="tel:+15146565060" class="btn btn-small" data-i18n="nav.appeler">Appeler</a>
     </nav>
   </header>
 
@@ -45,13 +52,13 @@
     <!-- Accueil -->
     <section id="accueil" class="hero">
       <div class="hero-text">
-        <p class="kicker">Bienvenue chez</p>
+        <p class="kicker" data-i18n="hero.bienvenue">Bienvenue chez</p>
         <h1>Ola<br>Latina</h1>
-        <p class="highlight">Cuisine latino-américaine</p>
-        <p class="hero-sub">Saveurs mexicaines et spécialités salvadoriennes, à Montréal-Nord.</p>
+        <p class="highlight" data-i18n="hero.cuisine">Cuisine latino-américaine</p>
+        <p class="hero-sub" data-i18n="hero.sous-titre">Saveurs mexicaines et spécialités salvadoriennes, à Montréal-Nord.</p>
         <div class="hero-actions">
-          <a href="#carte" class="btn">Voir la carte</a>
-          <a href="#contact" class="btn btn-outline">Nous trouver</a>
+          <a href="#carte" class="btn" data-i18n="hero.voir-carte">Voir la carte</a>
+          <a href="#contact" class="btn btn-outline" data-i18n="hero.nous-trouver">Nous trouver</a>
         </div>
       </div>
 
@@ -61,12 +68,12 @@
           <img class="deco deco-fleur" src="Assets/motifs/fleur-rouge.svg" alt="" aria-hidden="true">
           <picture>
             <source type="image/webp" srcset="Assets/plats/dejeuner-el-ranchero-400.webp 400w, Assets/plats/dejeuner-el-ranchero.webp 900w" sizes="(min-width: 860px) 460px, 85vw">
-            <img class="hero-photo" src="Assets/plats/dejeuner-el-ranchero.png" alt="Déjeuner gourmet El Ranchero : œufs tournés en sauce tomate, chorizo, bananes plantains, haricots noirs, avocat et fruits frais" decoding="async" fetchpriority="high">
+            <img class="hero-photo" data-i18n-alt="hero.photo-alt" data-zoom="hero.photo-nom" src="Assets/plats/dejeuner-el-ranchero.png" alt="Déjeuner gourmet El Ranchero : œufs tournés en sauce tomate, chorizo, bananes plantains, haricots noirs, avocat et fruits frais" decoding="async" fetchpriority="high">
           </picture>
         </div>
-        <div class="sticker" role="img" aria-label="Note de 4,7 sur 5 sur Google">
-          <strong aria-hidden="true">4,7 ★</strong>
-          <span aria-hidden="true">sur Google</span>
+        <div class="sticker" role="img" data-i18n-label="hero.note-label" aria-label="Note de 4,7 sur 5 sur Google">
+          <strong aria-hidden="true" data-i18n="hero.note">4,7 ★</strong>
+          <span aria-hidden="true" data-i18n="hero.sur-google">sur Google</span>
         </div>
       </div>
     </section>
@@ -76,13 +83,13 @@
     <!-- Carte -->
     <section id="carte" class="menu">
       <div class="container">
-        <p class="kicker kicker-light">Nos incontournables</p>
-        <h2>La <em>carte</em></h2>
+        <p class="kicker kicker-light" data-i18n="carte.surtitre">Nos incontournables</p>
+        <h2 data-i18n="carte.titre">La <em>carte</em></h2>
         <!-- Généré à partir de menu-data.js (le seul fichier à modifier pour la carte) -->
         <div class="menu-sections" id="menu-sections"></div>
         <div class="menu-note" id="menu-note"></div>
         <div class="menu-actions">
-          <a href="menu.html" class="btn btn-mustard">Voir le menu complet</a>
+          <a href="menu.html" class="btn btn-mustard" data-i18n="carte.menu-complet">Voir le menu complet</a>
         </div>
       </div>
     </section>
@@ -91,11 +98,11 @@
     <section id="boissons" class="vitrine">
       <div class="container">
         <div class="vitrine-titre">
-          <p class="kicker kicker-light">Horchata, jamaica, cocktails…</p>
-          <h2>Quelque chose <em>à&nbsp;boire&nbsp;?</em></h2>
+          <p class="kicker kicker-light" data-i18n="boissons.surtitre">Horchata, jamaica, cocktails…</p>
+          <h2 data-i18n="boissons.titre">Quelque chose <em>à&nbsp;boire&nbsp;?</em></h2>
         </div>
         <ul class="vitrine-grid" id="vitrine-boissons"></ul>
-        <a href="menu.html" class="btn btn-mustard">Toutes les boissons</a>
+        <a href="menu.html" class="btn btn-mustard" data-i18n="boissons.toutes">Toutes les boissons</a>
       </div>
     </section>
 
@@ -104,20 +111,20 @@
     <!-- Histoire : bloc couleur + bloc motif -->
     <section id="histoire" class="split">
       <div class="split-text">
-        <p class="kicker">Notre histoire · Montréal-Nord</p>
-        <h2>Les saveurs <em>de&nbsp;chez&nbsp;nous</em></h2>
-        <p>Chez Ola Latina, la cuisine est une histoire de passion, de partage et de découvertes. D'origine salvadorienne, notre inspiration culinaire s'est enrichie au fil des années, notamment grâce à un lien profond avec la culture et les traditions gastronomiques mexicaines : les saveurs du Mexique, inspirées par nos racines salvadoriennes.</p>
-        <p>Aujourd'hui, nous vous proposons un menu qui met à l'honneur les saveurs mexicaines, accompagnées de quelques spécialités salvadoriennes qui nous tiennent à cœur.</p>
-        <p>Chaque plat reflète notre amour de la bonne cuisine, notre désir de vous faire plaisir et notre goût pour les saveurs généreuses. Que vous veniez retrouver un plat que vous aimez ou découvrir une nouvelle spécialité, nous sommes heureux de vous accueillir chez nous.</p>
-        <a href="#galerie" class="btn btn-dark">Découvrir</a>
+        <p class="kicker" data-i18n="histoire.surtitre">Notre histoire · Montréal-Nord</p>
+        <h2 data-i18n="histoire.titre">Les saveurs <em>de&nbsp;chez&nbsp;nous</em></h2>
+        <p data-i18n="histoire.p1">Chez Ola Latina, la cuisine est une histoire de passion, de partage et de découvertes. D'origine salvadorienne, notre inspiration culinaire s'est enrichie au fil des années, notamment grâce à un lien profond avec la culture et les traditions gastronomiques mexicaines : les saveurs du Mexique, inspirées par nos racines salvadoriennes.</p>
+        <p data-i18n="histoire.p2">Aujourd'hui, nous vous proposons un menu qui met à l'honneur les saveurs mexicaines, accompagnées de quelques spécialités salvadoriennes qui nous tiennent à cœur.</p>
+        <p data-i18n="histoire.p3">Chaque plat reflète notre amour de la bonne cuisine, notre désir de vous faire plaisir et notre goût pour les saveurs généreuses. Que vous veniez retrouver un plat que vous aimez ou découvrir une nouvelle spécialité, nous sommes heureux de vous accueillir chez nous.</p>
+        <a href="#galerie" class="btn btn-dark" data-i18n="histoire.decouvrir">Découvrir</a>
       </div>
       <div class="split-pattern">
         <figure class="photo-frame tilt-left">
             <picture>
               <source type="image/webp" srcset="Assets/photos/enseigne-500.webp 500w, Assets/photos/enseigne.webp 1000w" sizes="(min-width: 760px) 340px, 90vw">
-              <img src="Assets/photos/enseigne.jpg" alt="Le logo Ola Latina peint sur la vitrine du restaurant, décorée de rosaces en papier" width="1000" height="1332" loading="lazy" decoding="async">
+              <img src="Assets/photos/enseigne.jpg" data-i18n-alt="histoire.photo-alt" alt="Le logo Ola Latina peint sur la vitrine du restaurant, décorée de rosaces en papier" width="1000" height="1332" loading="lazy" decoding="async">
             </picture>
-            <figcaption>Bienvenue chez nous</figcaption>
+            <figcaption data-i18n="histoire.legende">Bienvenue chez nous</figcaption>
           </figure>
       </div>
     </section>
@@ -125,29 +132,29 @@
     <!-- Galerie -->
     <section id="galerie" class="gallery-section">
       <div class="container">
-        <h2>Tout frais <em>sorti de</em> la cuisine</h2>
+        <h2 data-i18n="galerie.titre">Tout frais <em>sorti de</em> la cuisine</h2>
         <div class="gallery">
           <!-- Photos du restaurant (Assets/photos) : WebP + JPG de secours -->
           <figure class="photo-frame tilt-left">
             <picture>
               <source type="image/webp" srcset="Assets/photos/exterieur-500.webp 500w, Assets/photos/exterieur.webp 1000w" sizes="(min-width: 760px) 340px, 90vw">
-              <img src="Assets/photos/exterieur.jpg" alt="La devanture en brique d'Ola Latina, avec son enseigne et sa terrasse, au 10701 avenue Bellevois" width="1000" height="1332" loading="lazy" decoding="async">
+              <img src="Assets/photos/exterieur.jpg" data-i18n-alt="galerie.devanture-alt" alt="La devanture en brique d'Ola Latina, avec son enseigne et sa terrasse, au 10701 avenue Bellevois" width="1000" height="1332" loading="lazy" decoding="async">
             </picture>
-            <figcaption>La devanture</figcaption>
+            <figcaption data-i18n="galerie.devanture">La devanture</figcaption>
           </figure>
           <figure class="photo-frame tilt-right">
             <picture>
               <source type="image/webp" srcset="Assets/photos/comptoir-bonbons-500.webp 500w, Assets/photos/comptoir-bonbons.webp 1000w" sizes="(min-width: 760px) 340px, 90vw">
-              <img src="Assets/photos/comptoir-bonbons.jpg" alt="Le comptoir de commande et ses bocaux de bonbons latino-américains" width="1000" height="1332" loading="lazy" decoding="async">
+              <img src="Assets/photos/comptoir-bonbons.jpg" data-i18n-alt="galerie.comptoir-alt" alt="Le comptoir de commande et ses bocaux de bonbons latino-américains" width="1000" height="1332" loading="lazy" decoding="async">
             </picture>
-            <figcaption>Au comptoir</figcaption>
+            <figcaption data-i18n="galerie.comptoir">Au comptoir</figcaption>
           </figure>
           <figure class="photo-frame tilt-left-sm">
             <picture>
               <source type="image/webp" srcset="Assets/photos/cuisine-carottes-500.webp 500w, Assets/photos/cuisine-carottes.webp 1000w" sizes="(min-width: 760px) 340px, 90vw">
-              <img src="Assets/photos/cuisine-carottes.jpg" alt="En cuisine : des carottes coupées à la main sur la planche" width="1000" height="1332" loading="lazy" decoding="async">
+              <img src="Assets/photos/cuisine-carottes.jpg" data-i18n-alt="galerie.cuisine-alt" alt="En cuisine : des carottes coupées à la main sur la planche" width="1000" height="1332" loading="lazy" decoding="async">
             </picture>
-            <figcaption>Fait maison</figcaption>
+            <figcaption data-i18n="galerie.cuisine">Fait maison</figcaption>
           </figure>
         </div>
       </div>
@@ -156,35 +163,35 @@
     <!-- Contact & horaires -->
     <section id="contact" class="contact">
       <div class="contact-block contact-where">
-        <p class="kicker">Nous trouver</p>
-        <h2>Passez <em>nous voir</em></h2>
+        <p class="kicker" data-i18n="contact.surtitre">Nous trouver</p>
+        <h2 data-i18n="contact.titre">Passez <em>nous voir</em></h2>
         <p class="address">
           <a href="https://maps.app.goo.gl/vnsDN5pDzAvPZucu6" target="_blank" rel="noopener noreferrer">10701 Av. Bellevois<br>Montréal-Nord, QC H1H 3C7</a>
         </p>
         <p class="phone"><a href="tel:+15146565060">514-656-5060</a></p>
         <div class="hero-actions">
-          <a href="https://maps.app.goo.gl/vnsDN5pDzAvPZucu6" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Itinéraire</a>
-          <a href="tel:+15146565060" class="btn btn-outline-dark">Appeler</a>
+          <a href="https://maps.app.goo.gl/vnsDN5pDzAvPZucu6" target="_blank" rel="noopener noreferrer" class="btn btn-dark" data-i18n="contact.itineraire">Itinéraire</a>
+          <a href="tel:+15146565060" class="btn btn-outline-dark" data-i18n="nav.appeler">Appeler</a>
         </div>
       </div>
       <div class="contact-block contact-hours">
-        <h2>Horaires</h2>
+        <h2 data-i18n="contact.horaires">Horaires</h2>
         <ul class="hours">
-          <li><span>Lundi</span><span>9h – 17h</span></li>
-          <li><span>Mardi</span><span>Fermé</span></li>
-          <li><span>Mercredi – Samedi</span><span>10h – 21h</span></li>
-          <li><span>Dimanche</span><span>10h – 18h</span></li>
+          <li><span data-i18n="jour.lundi">Lundi</span><span data-i18n="heures.lundi">9h – 17h</span></li>
+          <li><span data-i18n="jour.mardi">Mardi</span><span data-i18n="heures.ferme">Fermé</span></li>
+          <li><span data-i18n="jour.mercredi-samedi">Mercredi – Samedi</span><span data-i18n="heures.mercredi-samedi">10h – 21h</span></li>
+          <li><span data-i18n="jour.dimanche">Dimanche</span><span data-i18n="heures.dimanche">10h – 18h</span></li>
         </ul>
       </div>
     </section>
 
     <section id="commander" class="order">
-      <p class="kicker kicker-light">Livraison</p>
-      <h2>Commander <em>en ligne</em></h2>
-      <p class="order-lead">Nos plats arrivent chez vous par Uber Eats ou DoorDash.</p>
+      <p class="kicker kicker-light" data-i18n="commander.surtitre">Livraison</p>
+      <h2 data-i18n="commander.titre">Commander <em>en ligne</em></h2>
+      <p class="order-lead" data-i18n="commander.texte">Nos plats arrivent chez vous par Uber Eats ou DoorDash.</p>
       <div class="hero-actions">
-        <a href="https://www.ubereats.com/store/ola-latina/IuEYY1fMRC2ZuVMaS8kHyA" target="_blank" rel="noopener noreferrer" class="btn btn-mustard">Commander sur Uber Eats</a>
-        <a href="https://www.doordash.com/store/restaurant-ola-latina-montreal-1062959" target="_blank" rel="noopener noreferrer" class="btn btn-light">Commander sur DoorDash</a>
+        <a href="https://www.ubereats.com/store/ola-latina/IuEYY1fMRC2ZuVMaS8kHyA" target="_blank" rel="noopener noreferrer" class="btn btn-mustard" data-i18n="commander.uber">Commander sur Uber Eats</a>
+        <a href="https://www.doordash.com/store/restaurant-ola-latina-montreal-1062959" target="_blank" rel="noopener noreferrer" class="btn btn-light" data-i18n="commander.doordash">Commander sur DoorDash</a>
       </div>
     </section>
   </main>
@@ -194,10 +201,14 @@
   <footer class="site-footer">
     <a href="#accueil" class="logo">Ola <em>Latina</em></a>
     <p>10701 Av. Bellevois, Montréal-Nord · <a href="tel:+15146565060" class="nowrap">514-656-5060</a></p>
-    <p class="small">&copy; <span id="year"></span> Ola Latina. Tous droits réservés. · <a href="politique-confidentialite.html">Politique de confidentialité</a> · <a href="conditions-utilisation.html">Conditions d'utilisation</a></p>
+    <p class="small">&copy; <span id="year"></span> Ola Latina. <span data-i18n="commun.droits">Tous droits réservés.</span> · <a href="politique-confidentialite.html" data-i18n="commun.confidentialite">Politique de confidentialité</a> · <a href="conditions-utilisation.html" data-i18n="commun.conditions">Conditions d'utilisation</a></p>
   </footer>
 
-  <script src="menu-data.js?v=20261108" charset="utf-8"></script>
-  <script src="script.js?v=20261108"></script>
+  <script src="traductions.js?v=20261115" charset="utf-8"></script>
+  <script src="menu-traductions.js?v=20261115" charset="utf-8"></script>
+  <script src="langue.js?v=20261115"></script>
+  <script src="menu-data.js?v=20261115" charset="utf-8"></script>
+  <script src="script.js?v=20261115"></script>
+  <script src="zoom.js?v=20261115"></script>
 </body>
 </html>

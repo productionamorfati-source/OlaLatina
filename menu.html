@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#f6ecd9">
-  <title>Menu · Ola Latina</title>
-  <meta name="description" content="Menu complet d'Ola Latina, restaurant latino-américain à Montréal-Nord.">
+  <title data-i18n="menu.titre">Menu · Ola Latina</title>
+  <meta name="description" data-i18n-content="menu.description" content="Menu complet d'Ola Latina, restaurant latino-américain à Montréal-Nord.">
   <!-- Aperçu au partage : voir index.html -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_CA">
@@ -23,13 +23,21 @@
   <link rel="preload" href="Assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="Assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="fonts.css?v=20261108">
-  <link rel="stylesheet" href="menu.css?v=20261108">
+  <link rel="stylesheet" href="fonts.css?v=20261115">
+  <link rel="stylesheet" href="menu.css?v=20261115">
+  <link rel="stylesheet" href="zoom.css?v=20261115">
 </head>
 <body class="menu-complet">
   <div class="frieze" aria-hidden="true"></div>
   <main class="page">
-    <a href="index.html#carte" class="retour">← Retour au site</a>
+    <div class="barre-haut">
+      <a href="index.html#carte" class="retour" data-i18n="commun.retour">← Retour au site</a>
+      <div class="langues" role="group" aria-label="Langue · Language · Idioma">
+        <button type="button" data-langue="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+        <button type="button" data-langue="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+        <button type="button" data-langue="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
+      </div>
+    </div>
     <header>
       <h1 id="nom"></h1>
       <p class="sous-titre" id="sous-titre"></p>
@@ -39,12 +47,16 @@
       <div id="contact"></div>
       <div class="legende" id="legende"></div>
       <div class="legende" id="note"></div>
-      <p class="legende"><a href="politique-confidentialite.html">Politique de confidentialité</a> · <a href="conditions-utilisation.html">Conditions d'utilisation</a></p>
+      <p class="legende"><a href="politique-confidentialite.html" data-i18n="commun.confidentialite">Politique de confidentialité</a> · <a href="conditions-utilisation.html" data-i18n="commun.conditions">Conditions d'utilisation</a></p>
     </footer>
   </main>
 
   <!-- Les plats sont dans menu-data.js -->
-  <script src="menu-data.js?v=20261108" charset="utf-8"></script>
-  <script src="menu.js?v=20261108"></script>
+  <script src="traductions.js?v=20261115" charset="utf-8"></script>
+  <script src="menu-traductions.js?v=20261115" charset="utf-8"></script>
+  <script src="langue.js?v=20261115"></script>
+  <script src="menu-data.js?v=20261115" charset="utf-8"></script>
+  <script src="menu.js?v=20261115"></script>
+  <script src="zoom.js?v=20261115"></script>
 </body>
 </html>

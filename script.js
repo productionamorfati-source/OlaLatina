@@ -1,5 +1,12 @@
 // Ola Latina — scripts de la page
 
+// Langue (langue.js) : si le fichier manque, le site reste en français
+const L = window.OLA || {
+  texte: (cle) => ({ 'ui.menu-ouvrir': 'Ouvrir le menu', 'ui.menu-fermer': 'Fermer le menu', 'ui.allergene': 'Allergène :', 'ui.des': 'dès', 'ui.tag-vege': 'Végé', 'ui.tag-epice': 'Épicé', 'ui.tag-vedette': 'Vedette' }[cle] || cle),
+  menu: (s) => s,
+  montant: (n) => (Number.isInteger(n) ? String(n) : n.toFixed(2).replace('.', ',')) + '\u00a0$'
+};
+
 // Menu mobile
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('.site-nav');
@@ -8,8 +15,10 @@ if (toggle && nav) {
   const setOpen = (open) => {
     nav.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    toggle.setAttribute('aria-label', L.texte(open ? 'ui.menu-fermer' : 'ui.menu-ouvrir'));
   };
+  setOpen(false);
+  document.addEventListener('ola:langue', () => setOpen(nav.classList.contains('open')));
 
   toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
 
@@ -43,24 +52,25 @@ document.querySelectorAll('.photo-frame img').forEach((img) => {
   img.addEventListener('load', () => img.classList.remove('missing'));
 });
 
-// Carte : générée à partir de menu-data.js (même source que menu.html)
+// Carte : générée à partir de menu-data.js (même source que menu.html), dans la langue choisie
 const menuEl = document.getElementById('menu-sections');
 
-if (menuEl && window.MENU) {
+const afficherCarte = () => {
   const m = window.MENU;
-  const etiquettes = { vege: 'Végé', epice: 'Épicé', vedette: 'Vedette' };
-  // 6 → « 6 $ », 2.5 → « 2,50 $ », { P: 25, G: 30 } → « P 25 $ / G 30 $ »
-  const montant = (n) => (Number.isInteger(n) ? String(n) : n.toFixed(2).replace('.', ',')) + '\u00a0$';
+  const t = L.menu; // texte de menu-data.js → langue choisie (menu-traductions.js)
+  const etiquette = (tag) => ({ vege: L.texte('ui.tag-vege'), epice: L.texte('ui.tag-epice'), vedette: L.texte('ui.tag-vedette') }[tag] || tag);
+  // 6 → « 6 $ » / « $6 », { P: 25, G: 30 } → « P 25 $ / G 30 $ » / « S $25 / L $30 »
+  const montant = L.montant;
   // Formats longs (« Sans alcool », « Verre »…) : affichés sur une ligne à part, sous le nom
   const prixCourt = (p) => typeof p.prix !== 'object' || Object.keys(p.prix).every((k) => k.length <= 2);
   const prix = (p) => {
     const texte = typeof p.prix === 'object'
-      ? Object.entries(p.prix).map(([taille, n]) => `${taille}\u00a0${montant(n)}`).join(prixCourt(p) ? ' / ' : ' · ')
+      ? Object.entries(p.prix).map(([taille, n]) => `${t(taille)}\u00a0${montant(n)}`).join(prixCourt(p) ? ' / ' : ' · ')
       : montant(p.prix);
-    return p.suffixe ? `${texte} ${p.suffixe}` : texte;
+    return p.suffixe ? `${texte} ${t(p.suffixe)}` : texte;
   };
-  const allergene = (a) => (a ? `<p class="allergene"><strong>Allergène :</strong> ${echap(a)}</p>` : '');
   const echap = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const allergene = (a) => (a ? `<p class="allergene"><strong>${echap(L.texte('ui.allergene'))}</strong> ${echap(t(a))}</p>` : '');
 
   // Photo détourée d'un plat (Assets/plats) : WebP léger, PNG pour les vieux navigateurs
   const photo = (img, alt, sizes) => `
@@ -73,50 +83,55 @@ if (menuEl && window.MENU) {
   // Accueil : seulement les sections marquées « accueil: true » (le menu complet est dans menu.html)
   const sections = m.sections.filter((s) => s.accueil);
 
-  menuEl.innerHTML = sections.map((s, i) => {
+  menuEl.innerHTML = sections.map((s) => {
     // Photo de la catégorie, sinon celle du premier plat qui en a une
     const avecPhoto = s.image ? { image: s.image, nom: s.titre } : s.plats.find((p) => p.image);
     return `
     <section class="menu-group">
-      ${avecPhoto ? `<div class="menu-group-visuel">${visuel(avecPhoto.image, avecPhoto.nom, '(min-width: 760px) 170px, 130px')}</div>` : ''}
-      <h3>${echap(s.titre)}</h3>
-      ${s.intro ? `<p class="menu-intro">${echap(s.intro)}</p>` : ''}
+      ${avecPhoto ? `<div class="menu-group-visuel">${visuel(avecPhoto.image, t(avecPhoto.nom), '(min-width: 760px) 170px, 130px')}</div>` : ''}
+      <h3>${echap(t(s.titre))}</h3>
+      ${s.intro ? `<p class="menu-intro">${echap(t(s.intro))}</p>` : ''}
       ${allergene(s.allergene)}
       <ul>
         ${s.plats.map((p) => `
           <li class="dish">
             <div class="dish-line">
-              <span class="dish-name">${echap(p.nom)}</span>
-              ${(p.tags || []).map((t) => `<span class="tag ${echap(t)}">${etiquettes[t] || echap(t)}</span>`).join('')}
+              <span class="dish-name">${echap(t(p.nom))}</span>
+              ${(p.tags || []).map((tag) => `<span class="tag ${echap(tag)}">${echap(etiquette(tag))}</span>`).join('')}
               ${prixCourt(p) ? `<span class="dots"></span><span class="price">${echap(prix(p))}</span>` : ''}
             </div>
             ${prixCourt(p) ? '' : `<p class="price-variants">${echap(prix(p))}</p>`}
-            ${p.description ? `<p>${echap(p.description)}</p>` : ''}
+            ${p.description ? `<p>${echap(t(p.description))}</p>` : ''}
             ${allergene(p.allergene)}
           </li>`).join('')}
       </ul>
-      ${s.note ? `<p class="menu-group-note">${echap(s.note)}</p>` : ''}
+      ${s.note ? `<p class="menu-group-note">${echap(t(s.note))}</p>` : ''}
     </section>`;
   }).join('');
 
   // Vitrine des boissons : les boissons avec photo des sections « vitrine: true »
   const vitrine = document.getElementById('vitrine-boissons');
   if (vitrine) {
-    const des = (p) => (typeof p.prix === 'object' ? `dès ${montant(Math.min(...Object.values(p.prix)))}` : montant(p.prix));
+    const des = (p) => (typeof p.prix === 'object' ? `${L.texte('ui.des')} ${montant(Math.min(...Object.values(p.prix)))}` : montant(p.prix));
     vitrine.innerHTML = m.sections
       .filter((s) => s.vitrine)
       .flatMap((s) => s.plats.filter((p) => p.image))
       .map((p) => `
         <li class="vitrine-item">
-          ${photo(p.image, p.nom, '(min-width: 760px) 200px, 45vw')}
-          <span class="vitrine-nom">${echap(p.nom)}</span>
+          ${photo(p.image, t(p.nom), '(min-width: 760px) 200px, 45vw')}
+          <span class="vitrine-nom">${echap(t(p.nom))}</span>
           <span class="vitrine-prix">${echap(des(p))}</span>
         </li>`).join('');
   }
 
   // Notes sous la carte (pourboire, fermeture, combo…)
   const notes = document.getElementById('menu-note');
-  if (notes) notes.innerHTML = (m.notes || []).map((n) => `<p>${echap(n)}</p>`).join('');
+  if (notes) notes.innerHTML = (m.notes || []).map((n) => `<p>${echap(t(n))}</p>`).join('');
+};
+
+if (menuEl && window.MENU) {
+  afficherCarte();
+  document.addEventListener('ola:langue', afficherCarte);
 }
 
 // Année courante dans le pied de page

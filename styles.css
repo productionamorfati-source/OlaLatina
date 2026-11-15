@@ -665,7 +665,6 @@ figure.photo-frame.photo-vide figcaption { visibility: visible; color: var(--ink
 .address a, .phone a { display: inline-block; padding: 0.15rem 0; }
 .contact-where .hero-actions { margin-top: 1.6rem; }
 
-
 /* ===== COMMANDER EN LIGNE (livraison) ===== */
 .order {
   background: var(--violet);
@@ -678,6 +677,7 @@ figure.photo-frame.photo-vide figcaption { visibility: visible; color: var(--ink
 .order-lead { max-width: 42ch; margin: 0 auto; }
 .order .hero-actions { justify-content: center; margin-top: 1.8rem; }
 .btn-light { background: transparent; border-color: var(--white); color: var(--white); }
+
 
 .contact-hours { background: var(--fuchsia); color: var(--white); }
 .contact-hours h2 { color: var(--white); }
@@ -706,6 +706,48 @@ figure.photo-frame.photo-vide figcaption { visibility: visible; color: var(--ink
 .site-footer .small a { color: inherit; text-underline-offset: 3px; }
 .site-footer p a { color: inherit; }
 .nowrap { white-space: nowrap; }
+
+/* ---------- Choix de la langue (FR / EN / ES) ---------- */
+.langues {
+  display: flex;
+  margin-left: auto;
+  margin-right: 0.35rem;
+}
+.langues button {
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 0.45rem;
+  border: 2px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+.langues button + button { margin-left: -2px; }
+.langues button:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+.langues button:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.langues button[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
+@media (hover: hover) {
+  .langues button[aria-pressed="false"]:hover { background: var(--mustard); }
+}
+.langues button:focus-visible { position: relative; z-index: 1; }
+/* Très petits téléphones : boutons un peu plus serrés */
+@media (max-width: 359px) {
+  .langues button { min-width: 34px; padding: 0 0.25rem; }
+  .logo { font-size: 1.4rem; }
+}
+/* Ordinateur : après les liens du menu */
+@media (min-width: 860px) {
+  .site-nav { margin-left: auto; }
+  .langues { order: 3; margin: 0 0 0 1.4rem; }
+}
+@media (min-width: 860px) and (max-width: 1080px) {
+  .site-nav { gap: 1.1rem; }
+  .langues { margin-left: 1rem; }
+}
 
 /* Texte courant à 18 px sur tablette et ordinateur */
 @media (min-width: 768px) {

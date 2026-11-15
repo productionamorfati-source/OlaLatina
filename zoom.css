@@ -1,0 +1,133 @@
+/* Ola Latina — photos des plats qui grossissent (accueil et menu complet)
+   Survol à la souris : la photo grossit et penche un peu.
+   Clic ou toucher : la photo s'ouvre en grand sur fond sombre (zoom.js). */
+
+.plat-visuel, .vitrine-item picture, .hero-plat picture { cursor: zoom-in; }
+/* Les photos passent au-dessus des textes voisins (sinon le texte « attrape » le clic ou le survol) */
+.plat-visuel { z-index: 2; }
+.plat-visuel picture, .vitrine-item picture, .hero-plat picture {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .plat-visuel:hover { z-index: 3; }
+  .plat-visuel:hover picture { transform: scale(1.25) rotate(-3deg); }
+  .vitrine-item:hover picture { transform: scale(1.12) translateY(-4%) rotate(-2deg); }
+  .hero-plat:hover picture { transform: scale(1.06) rotate(-2deg); }
+}
+
+/* Clavier : même effet que le survol, avec un contour visible */
+.plat-visuel:focus-visible, .vitrine-item picture:focus-visible, .hero-plat picture:focus-visible {
+  outline: 3px dashed #f2b705;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+.plat-visuel:focus-visible { z-index: 3; }
+.plat-visuel:focus-visible picture { transform: scale(1.25) rotate(-3deg); }
+.vitrine-item picture:focus-visible { border-radius: 999px 999px 6px 6px; transform: scale(1.12) translateY(-4%) rotate(-2deg); }
+
+/* Toucher (téléphone) : petite pression visible avant l'ouverture */
+.plat-visuel:active picture, .vitrine-item picture:active, .hero-plat picture:active { transform: scale(1.1); }
+
+/* ---------- Fenêtre d'agrandissement ---------- */
+.zoom-plat {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fffaf0;
+  cursor: zoom-out;
+  overflow: hidden;
+}
+.zoom-plat[open] { display: grid; place-items: center; }
+.zoom-plat::backdrop { background: rgba(28, 27, 29, 0.9); }
+html:has(.zoom-plat[open]) { overflow: hidden; }
+
+.zoom-plat figure {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: max(3.5rem, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+
+/* Le plat posé sur la fleur rouge, comme sur l'accueil */
+.zoom-image {
+  position: relative;
+  width: min(92vw, 70dvh, 720px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.zoom-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("Assets/motifs/fleur-rouge.svg") center / contain no-repeat;
+  transform: rotate(-8deg);
+  opacity: 0.95;
+}
+.zoom-image img {
+  position: relative;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.5));
+  animation: zoom-plat-entree 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.zoom-plat figcaption {
+  max-width: 34ch;
+  margin-top: 1rem;
+  text-align: center;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #f2b705;
+}
+.zoom-aide {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.zoom-fermer {
+  position: absolute;
+  top: max(0.75rem, env(safe-area-inset-top));
+  right: max(0.75rem, env(safe-area-inset-right));
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fffaf0;
+  border-radius: 50%;
+  background: #d6336c;
+  color: #fffaf0;
+  font-size: 1.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.zoom-fermer:focus-visible { outline: 3px solid #f2b705; outline-offset: 3px; }
+
+@keyframes zoom-plat-entree {
+  from { transform: scale(0.6) rotate(-6deg); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+/* Mouvements réduits : pas d'animation */
+@media (prefers-reduced-motion: reduce) {
+  .plat-visuel picture, .vitrine-item picture, .hero-plat picture { transition: none; }
+  .zoom-image img { animation: none; }
+}
+
+/* Impression du menu : pas de curseur ni de fenêtre */
+@media print {
+  .zoom-plat { display: none !important; }
+}
