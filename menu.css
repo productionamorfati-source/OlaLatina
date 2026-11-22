@@ -105,7 +105,7 @@ footer a { color: inherit; }
 .menu-complet .retour { color: var(--mustard); }
 .menu-complet header { border-bottom-color: var(--mustard); }
 .menu-complet header h1 { font-size: clamp(2.8rem, 9vw, 4.6rem); font-weight: 900; text-transform: uppercase; color: var(--mustard); line-height: 1; }
-.menu-complet header h1 span { color: var(--white); font-style: italic; font-weight: 700; text-transform: none; }
+.menu-complet header h1 span { color: var(--white); font-style: normal; font-weight: 700; text-transform: none; }
 .menu-complet .sous-titre { color: var(--white); }
 .menu-complet .colonnes { column-gap: 64px; }
 .menu-complet section { margin-bottom: 44px; }
@@ -207,3 +207,7 @@ footer a { color: inherit; }
   .menu-complet .plat { margin-bottom: 8px; }
   .menu-complet section { margin-bottom: 18px; }
 }
+
+/* Logo officiel rond au-dessus du titre du menu */
+.logo-menu { display: block; width: 120px; height: 120px; margin: 0 auto 12px; }
+@media print { .logo-menu { width: 80px; height: 80px; } }
