@@ -36,6 +36,7 @@ window.TRADUCTIONS = {
   "nav.histoire": { en: "Our story", es: "Nuestra historia" },
   "nav.galerie": { en: "Gallery", es: "Galería" },
   "nav.contact": { en: "Contact", es: "Contacto" },
+  "nav.commander": { en: "Order", es: "Pedir" },
   "nav.appeler": { en: "Call", es: "Llamar" },
 
   "hero.bienvenue": { en: "Welcome to", es: "Bienvenidos a" },
