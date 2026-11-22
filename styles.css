@@ -164,7 +164,7 @@ h2 { font-size: clamp(2.2rem, 6vw, 4rem); }
   text-decoration: none;
   color: var(--orange);
 }
-.logo em { color: var(--fuchsia); font-size: 0.85em; }
+.logo em { color: var(--fuchsia); font-size: 0.85em; font-style: normal; } /* « Latina » droit, sans italique */
 
 .nav-toggle {
   display: inline-flex;
