@@ -128,7 +128,23 @@ footer a { color: inherit; }
 .menu-complet .plat.avec-photo { grid-template-columns: 1fr 130px; }
 @media (max-width: 480px) { .menu-complet .plat.avec-photo { grid-template-columns: 1fr 92px; } }
 .menu-complet .visuel-section { width: 140px; }
-.menu-complet footer { color: var(--white); border-top: 3px solid var(--mustard); opacity: .9; }
+.menu-complet footer { color: var(--white); border-top: 3px solid var(--mustard); }
+.menu-complet footer #contact, .menu-complet footer .legende { opacity: .9; }
+/* Sous le menu : l'offre en évidence, puis l'encadré « À savoir » (pourboire, fermeture, taxes) */
+.menu-complet footer #note { opacity: 1; margin: 18px 0; }
+.offre { display: inline-block; margin: 0 0 16px; padding: 5px 14px; background: var(--gold); color: var(--ink); font-weight: 700; border-radius: 6px; transform: rotate(-.6deg); }
+.avis { max-width: 640px; margin: 0 auto; padding: 14px 18px 16px; border: 3px solid var(--terracotta-dark); border-radius: 6px; background: #f8e0d6; text-align: left; }
+.avis-titre { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; color: var(--terracotta-dark); font-weight: 700; font-size: .9rem; text-transform: uppercase; letter-spacing: .08em; }
+.avis-titre::before { content: "!"; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--terracotta-dark); color: #fff; font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 1rem; letter-spacing: 0; }
+.avis ul { margin: 0; padding: 0; list-style: none; }
+.avis li { position: relative; margin: 5px 0 0; padding-left: 20px; font-weight: 600; line-height: 1.45; }
+.avis li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 7px; height: 7px; background: var(--terracotta-dark); transform: rotate(45deg); }
+.menu-complet .offre { background: var(--mustard); }
+.menu-complet .avis { border-color: var(--mustard); background: rgba(242, 183, 5, .12); }
+.menu-complet .avis-titre { color: var(--mustard); }
+.menu-complet .avis-titre::before, .menu-complet .avis li::before { background: var(--mustard); color: var(--ink); }
+.variante strong { color: var(--terracotta-dark); }
+.menu-complet .variante strong { color: var(--mustard); }
 .menu-complet a:focus-visible { outline-color: var(--mustard); }
 
 /* Choix de la langue (FR / EN / ES) : en haut des pages, à côté du lien de retour */
@@ -182,6 +198,10 @@ footer a { color: inherit; }
   .menu-complet .ligne .points, .menu-complet section h2, .menu-complet footer { border-color: var(--line); }
   .menu-complet .allergene { background: #f8e0d6; border-left-color: var(--terracotta-dark); }
   .menu-complet .allergene strong { color: inherit; }
+  .menu-complet .offre { background: var(--gold); }
+  .menu-complet .avis { border-color: var(--terracotta-dark); background: #f8e0d6; }
+  .menu-complet .avis-titre, .menu-complet .variante strong { color: var(--terracotta-dark); }
+  .menu-complet .avis-titre::before, .menu-complet .avis li::before { background: var(--terracotta-dark); color: #fff; }
   .menu-complet .plat.avec-photo { grid-template-columns: 1fr 70px; }
   .menu-complet .visuel-section { width: 80px; }
   .menu-complet .plat { margin-bottom: 8px; }

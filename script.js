@@ -70,7 +70,10 @@ const afficherCarte = () => {
     return p.suffixe ? `${texte} ${t(p.suffixe)}` : texte;
   };
   const echap = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const allergene = (a) => (a ? `<p class="allergene"><strong>${echap(L.texte('ui.allergene'))}</strong> ${echap(t(a))}</p>` : '');
+  const allergene = (a, renvoi) => (a ? `<p class="allergene"><strong>${echap((renvoi || '') + L.texte('ui.allergene'))}</strong> ${echap(t(a))}</p>` : '');
+  // Description : une phrase, ou une liste de phrases (une ligne chacune), puis les variantes du plat
+  const descriptions = (p) => [].concat(p.description || []).map((d) => `<p>${echap(t(d))}</p>`).join('')
+    + (p.variantes || []).map((v) => `<p class="variante"><strong>${echap(t(v.nom))}</strong> – ${echap(t(v.texte))}</p>`).join('');
 
   // Photo détourée d'un plat (Assets/plats) : WebP léger, PNG pour les vieux navigateurs
   const photo = (img, alt, sizes) => `
@@ -101,8 +104,8 @@ const afficherCarte = () => {
               ${prixCourt(p) ? `<span class="dots"></span><span class="price">${echap(prix(p))}</span>` : ''}
             </div>
             ${prixCourt(p) ? '' : `<p class="price-variants">${echap(prix(p))}</p>`}
-            ${p.description ? `<p>${echap(t(p.description))}</p>` : ''}
-            ${allergene(p.allergene)}
+            ${descriptions(p)}
+            ${allergene(p.allergene, p.renvoi)}
           </li>`).join('')}
       </ul>
       ${s.note ? `<p class="menu-group-note">${echap(t(s.note))}</p>` : ''}
@@ -124,9 +127,12 @@ const afficherCarte = () => {
         </li>`).join('');
   }
 
-  // Notes sous la carte (pourboire, fermeture, combo…)
+  // Sous la carte : l'offre en évidence, puis l'encadré des avis (pourboire, fermeture, taxes)
   const notes = document.getElementById('menu-note');
-  if (notes) notes.innerHTML = (m.notes || []).map((n) => `<p>${echap(t(n))}</p>`).join('');
+  if (notes) {
+    notes.innerHTML = (m.offre ? `<p class="offre">${echap(t(m.offre))}</p>` : '')
+      + ((m.avis || []).length ? `<div class="avis"><p class="avis-titre">${echap(L.texte('ui.avis'))}</p><ul>${m.avis.map((n) => `<li>${echap(t(n))}</li>`).join('')}</ul></div>` : '');
+  }
 };
 
 if (menuEl && window.MENU) {

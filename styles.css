@@ -548,8 +548,66 @@ figure.photo-frame.photo-vide figcaption { visibility: visible; color: var(--ink
 .tag.vege { background: var(--teal); color: var(--white); }
 .tag.epice { background: var(--fuchsia); color: var(--white); }
 
-.menu-note { margin: 0.5rem 0 1.5rem; opacity: 0.85; font-style: italic; }
-.menu-note p { margin: 0.25rem 0; }
+/* Sous la carte : l'offre en évidence, puis l'encadré « À savoir » (pourboire, fermeture, taxes) */
+.menu-note { margin: 0.75rem 0 1.75rem; }
+.menu-note .offre {
+  display: inline-block;
+  margin: 0 0 1.1rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--mustard);
+  color: var(--ink);
+  font-weight: 700;
+  border-radius: var(--radius);
+  transform: rotate(-0.6deg);
+}
+.avis {
+  max-width: 44rem;
+  padding: 0.9rem 1.1rem 1rem;
+  border: 3px solid var(--mustard);
+  border-radius: var(--radius);
+  background: rgba(242, 183, 5, 0.12);
+  text-align: left;
+}
+.avis-titre {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem;
+  color: var(--mustard);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.avis-titre::before {
+  content: "!";
+  display: inline-grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--mustard);
+  color: var(--ink);
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+.avis ul { margin: 0; padding: 0; list-style: none; }
+.avis li { position: relative; margin: 0.35rem 0 0; padding-left: 1.2rem; font-weight: 600; line-height: 1.45; }
+.avis li::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: 0.5em;
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--mustard);
+  transform: rotate(45deg);
+}
+
+/* Variantes d'un plat (ex. tamal salvadorien / mexicain), une par ligne */
+.variante strong, .desc.variante strong { color: var(--mustard); }
 
 /* Prix à plusieurs formats longs (Sans alcool / Simple / Double…) */
 .price-variants {
