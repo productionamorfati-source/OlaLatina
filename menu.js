@@ -21,7 +21,10 @@ const afficherMenu = () => {
     return p.suffixe ? texte + " " + t(p.suffixe) : texte;
   };
   const echap = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const allergene = a => a ? `<p class="allergene"><strong>${echap(L.texte("ui.allergene"))}</strong> ${echap(t(a))}</p>` : "";
+  const allergene = (a, renvoi) => a ? `<p class="allergene"><strong>${echap((renvoi || "") + L.texte("ui.allergene"))}</strong> ${echap(t(a))}</p>` : "";
+  // Description : une phrase, ou une liste de phrases (une ligne chacune), puis les variantes du plat
+  const descriptions = p => [].concat(p.description || []).map(d => `<p class="desc">${echap(t(d))}</p>`).join("")
+    + (p.variantes || []).map(v => `<p class="desc variante"><strong>${echap(t(v.nom))}</strong> – ${echap(t(v.texte))}</p>`).join("");
 
   // Photo détourée du plat (Assets/plats) : WebP léger, PNG pour les vieux navigateurs
   const visuel = (img, alt, classe) => `
@@ -39,8 +42,10 @@ const afficherMenu = () => {
     : echap(m.restaurant);
   document.getElementById("sous-titre").textContent = t(m.sousTitre);
   document.getElementById("contact").textContent = m.adresse + " · " + m.telephone;
-  // Notes sous le menu (pourboire, fermeture, combo…)
-  document.getElementById("note").innerHTML = (m.notes || []).map(n => `<p>${echap(t(n))}</p>`).join("");
+  // Sous le menu : l'offre en évidence, puis l'encadré des avis (pourboire, fermeture, taxes)
+  document.getElementById("note").innerHTML =
+    (m.offre ? `<p class="offre">${echap(t(m.offre))}</p>` : "")
+    + ((m.avis || []).length ? `<div class="avis"><p class="avis-titre">${echap(L.texte("ui.avis"))}</p><ul>${m.avis.map(n => `<li>${echap(t(n))}</li>`).join("")}</ul></div>` : "");
 
   // Légende : seulement les étiquettes utilisées dans le menu
   const utilisees = new Set(m.sections.flatMap(s => s.plats.flatMap(p => p.tags || [])));
@@ -63,8 +68,8 @@ const afficherMenu = () => {
           </div>
           ${prixCourt(p) ? "" : `<p class="prix-variantes">${echap(prix(p))}</p>`}
           <div class="plat-texte">
-          ${p.description ? `<p class="desc">${echap(t(p.description))}</p>` : ""}
-          ${allergene(p.allergene)}
+          ${descriptions(p)}
+          ${allergene(p.allergene, p.renvoi)}
           </div>
           ${p.image ? visuel(p.image, t(p.nom), "visuel-plat") : ""}
         </div>`).join("")}

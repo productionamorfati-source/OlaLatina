@@ -10,6 +10,7 @@ window.TRADUCTIONS = {
   "ui.menu-ouvrir": { fr: "Ouvrir le menu", en: "Open menu", es: "Abrir el menú" },
   "ui.menu-fermer": { fr: "Fermer le menu", en: "Close menu", es: "Cerrar el menú" },
   "ui.allergene": { fr: "Allergène :", en: "Allergen:", es: "Alérgeno:" },
+  "ui.avis": { fr: "À savoir", en: "Good to know", es: "Importante" },
   "ui.des": { fr: "dès", en: "from", es: "desde" },
   "ui.tag-vege": { fr: "Végé", en: "Veggie", es: "Vegetariano" },
   "ui.tag-epice": { fr: "Épicé", en: "Spicy", es: "Picante" },
@@ -39,7 +40,7 @@ window.TRADUCTIONS = {
 
   "hero.bienvenue": { en: "Welcome to", es: "Bienvenidos a" },
   "hero.cuisine": { en: "Latin American cuisine", es: "Cocina latinoamericana" },
-  "hero.sous-titre": { en: "Mexican flavours and Salvadoran specialties, in Montréal-Nord.", es: "Sabores mexicanos y especialidades salvadoreñas, en Montréal-Nord." },
+  "hero.sous-titre": { en: "Mexican flavours and Salvadoran specialties in Montréal-Nord.", es: "Sabores mexicanos y especialidades salvadoreñas en Montréal-Nord." },
   "hero.voir-carte": { en: "See the menu", es: "Ver el menú" },
   "hero.nous-trouver": { en: "Find us", es: "Encuéntrenos" },
   "hero.photo-alt": {
