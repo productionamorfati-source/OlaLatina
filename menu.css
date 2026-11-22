@@ -1,6 +1,7 @@
 /* Ola Latina — menu complet (menu.html) */
 /* Couleurs et polices alignées sur le site (styles.css) */
 :root {
+  color-scheme: only light; /* pas de mode sombre forcé */
   --cream: #f6ecd9; --ink: #2a1a12; --muted: #6b5a50;
   --terracotta: #e2581f; --terracotta-dark: #9e3c1d;
   --gold: #f2b705; --green: #1c7166; --line: #e3d1b8;

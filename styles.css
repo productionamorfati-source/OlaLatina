@@ -6,6 +6,7 @@
    ========================================================== */
 
 :root {
+  color-scheme: only light; /* pas de mode sombre forcé */
   --cream: #f6ecd9;
   --ink: #2a1a12;
   --orange: #e2581f;
