@@ -11,7 +11,8 @@ window.TRADUCTIONS_MENU = {
   "Ajoutez à votre commande une boisson en canette et des frites pour seulement 4,99 $ !": { en: "Add a canned drink and fries to your order for only $4.99!", es: "¡Agregue a su pedido una bebida en lata y papas fritas por solo 4,99 $!" },
   "Un pourboire de 15 % est automatiquement ajouté aux tables de 6 personnes ou plus. Merci de votre compréhension !": { en: "A 15% tip is automatically added for tables of 6 or more. Thank you for your understanding!", es: "Se agrega automáticamente una propina del 15 % a las mesas de 6 personas o más. ¡Gracias por su comprensión!" },
   "Nous sommes fermés tous les mardis.": { en: "We are closed every Tuesday.", es: "Cerramos todos los martes." },
-  "Taxes en sus. Avisez-nous de toute allergie.": { en: "Taxes extra. Please tell us about any allergies.", es: "Impuestos no incluidos. Infórmenos de cualquier alergia." },
+  "Taxes en sus.": { en: "Taxes extra.", es: "Impuestos no incluidos." },
+  "Avisez-nous de toute allergie.": { en: "Please tell us about any allergies.", es: "Infórmenos de cualquier alergia." },
 
   // ---------- Formats de prix ----------
   "P": { en: "S", es: "P" },
@@ -63,7 +64,7 @@ window.TRADUCTIONS_MENU = {
   "Déjeuners chilaquiles": { en: "Chilaquiles breakfasts", es: "Desayunos de chilaquiles" },
   "Servis jusqu'à 13 h. Nachos de maïs nappés de sauce tomate épicée, accompagnés de fromage mozzarella, de deux œufs tournés, de crème sure, de fruits frais et d'un café maison.": { en: "Served until 1 p.m. Corn chips topped with spicy tomato sauce, served with mozzarella cheese, two eggs over easy, sour cream, fresh fruit and house coffee.", es: "Se sirven hasta las 13 h. Totopos de maíz bañados en salsa de tomate picante, con queso mozzarella, dos huevos volteados, crema agria, fruta fresca y café de la casa." },
   "Chilaquiles nature": { en: "Plain chilaquiles", es: "Chilaquiles sencillos" },
-  "Œufs.": { en: "Eggs.", es: "Huevos." },
+  "Oeufs.": { en: "Eggs.", es: "Huevos." },
   "Porc mariné et ananas.": { en: "Marinated pork and pineapple.", es: "Cerdo marinado y piña." },
   "Chilaquiles au poulet": { en: "Chicken chilaquiles", es: "Chilaquiles de pollo" },
   "Chilaquiles au steak": { en: "Steak chilaquiles", es: "Chilaquiles de bistec" },

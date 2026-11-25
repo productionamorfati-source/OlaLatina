@@ -38,8 +38,9 @@ window.MENU = {
   // Avis importants sous le menu, dans un encadré bien visible (une ligne chacun)
   avis: [
     "Un pourboire de 15 % est automatiquement ajouté aux tables de 6 personnes ou plus. Merci de votre compréhension !",
+    "Taxes en sus.",
     "Nous sommes fermés tous les mardis.",
-    "Taxes en sus. Avisez-nous de toute allergie."
+    "Avisez-nous de toute allergie."
   ],
 
   sections: [
@@ -84,7 +85,7 @@ window.MENU = {
       plats: [
 { nom: "Chilaquiles au poulet", prix: 25, tags: ["epice"] },
         { nom: "Chilaquiles au steak", prix: 28, tags: ["epice"] },
-        { nom: "Chilaquiles nature", description: "Œufs.", prix: 20, tags: ["epice"] },
+        { nom: "Chilaquiles nature", description: "Oeufs.", prix: 20, tags: ["epice"] },
         { nom: "Chilaquiles al pastor", description: "Porc mariné et ananas.", prix: 25, tags: ["epice"] },
         { nom: "Chilaquiles campechano", description: "Chorizo (saucisse de porc haché) et steak.", prix: 28, tags: ["epice"] },
         { nom: "Chilaquiles mixtes", description: "Crevettes et poulet.", prix: 32, tags: ["epice"] },
@@ -228,10 +229,10 @@ window.MENU = {
         { nom: "Horchata", image: "horchata", prix: { P: 5, G: 9 } },
         { nom: "Jamaica", image: "jamaica", prix: { P: 5, G: 9 } },
         { nom: "Limonade", image: "limonade", prix: { P: 5, G: 9 } },
+        { nom: "Sangría Señorial", description: "Boisson gazeuse sans alcool.", prix: 5 },
         { nom: "Coca-Cola", prix: 5 },
         { nom: "Jarritos", prix: 5 },
-        { nom: "Kolashanpan (20 oz)", prix: 5 },
-        { nom: "Sangría Señorial", description: "Boisson gazeuse sans alcool.", prix: 5 }
+        { nom: "Kolashanpan (20 oz)", prix: 5 }
       ]
     },
     {
